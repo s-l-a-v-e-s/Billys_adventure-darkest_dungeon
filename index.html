@@ -1,0 +1,43 @@
+﻿<html>
+    <head>
+	<meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+        
+    <div id="creation">
+        <div id="params">
+            <h1 id=typeName>Ваше имя</h1>
+            <input id=playerName></input><br><br>
+            <img src="res/unknown.png" alt="" id=classButton></img>
+            <p id=classTag>Класс</p>
+            <input onclick="confirmCharacter()" type="submit" value="отправить"/>
+            <p id="counter">10</p>
+		<p>Сила</p>
+		<div id="divStrength"><br><input type=button value="-" onclick="minusSkill(1)"><p id="strengthCrt">0</p><input onclick="plusSkill(1)" type=button value="+"></div>
+		<p>Ловкость</p>
+		<div id="divAgility"><input type=button value="-" onclick="minusSkill(2)"><p id="agilityCrt">0</p><input type=button value="+" onclick="plusSkill(2)"></div>
+		<p>Интелект</p>
+		<div id="divIntellegence"><input type=button value="-" onclick="minusSkill(3)"><p id="intellegenceCrt">0</p><input type=button value="+" onclick="plusSkill(3)"></div>
+        </div>
+        <img id="billyPick"src="res/who.png">
+    </div>
+
+    <div id="inventoryWindow">
+        <div id="equipedItems">
+            <div id="hat"></div>
+            <div id="bodyArmor"></div>
+            <div id="amulet"></div>
+            <div id="weapon"></div>
+        </div>
+        <div id="playerImg">
+            <div id="playerPic"></div>
+        </div>
+        <div id="playerInv"></div>
+    </div>
+        <script src=creation.js></script>
+        <script src=mainEventScript.js></script>
+      </body>
+</html>
