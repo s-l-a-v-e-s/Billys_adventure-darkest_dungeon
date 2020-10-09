@@ -49,17 +49,10 @@
     function confirmCharacter(){
         getName();
         console.log(Player);
-        document.getElementById("creation").remove();
-        document.body.appendChild(document.createElement("div")).setAttribute("id","mainTable");
-        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","pictureDiv")
-        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","mapDiv")
-        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","dialogueDiv")
-        document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","dialogueWindow")
-        document.getElementById("mapDiv").oncontextmenu = function(){
-            document.getElementById("inventoryWindow").style.visibility = "visible";
-        }
-
+        document.getElementById("creation").style.opacity = 0;
+        setTimeout(removeCreation,2000)
     }
+    
 
    	var counter = 10
 	var str = document.getElementById("strengthCrt");
@@ -114,6 +107,13 @@
             
     }
     
+    function removeCreation(){
+        document.getElementById("creation").remove();
+        document.body.appendChild(document.createElement("div")).setAttribute("id","mainTable");
+        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","pictureDiv");
+        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","mapDiv");
+        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","dialogueDiv");
+        document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","dialogueWindow");
 
+    }
     
-

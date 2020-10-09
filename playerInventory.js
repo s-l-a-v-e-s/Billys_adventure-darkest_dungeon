@@ -26,13 +26,13 @@ class EquipmentItem extends Item {
 	//Например: Амулет самого быстрого dick'a на dick'ом западе вешает бусты к скорости отката cumming из посоха
 	//Происходит удар игрока по slav'у и в этот момент срабатывает метод enableBattleEffects, в котором прописано player.cumAttackCooldown *= 0,5
 
-	function enableBattleEffects() {
+	/*function enableBattleEffects() {
 		
 	}
 
 	function enablePassiveEffects() {
 		
-	}
+	}*/
 }
 
 

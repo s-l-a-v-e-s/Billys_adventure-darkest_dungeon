@@ -9,7 +9,14 @@
    width: 45%;
    color:white;
    padding: 0%;
+   opacity: 100;
+   position: relative;
+   z-index: 500;
 }
+.creation{
+transition: all 2s linear;
+}
+
 
 #counter{
 	color:lime;
@@ -34,6 +41,7 @@
    z-index: 0;
 
 }
+
 body {
    background-image: url("res/tableFone.png");
    background-size:cover;
