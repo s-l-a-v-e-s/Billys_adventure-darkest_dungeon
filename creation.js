@@ -25,18 +25,21 @@
           classTag.innerHTML = "Воин"
           Player.characterType="Воин"
           document.getElementById("billyPick").src = "res/billywarrior.png";
+          document.getElementById("playerPic").src = "res/billywarrior.png";
         }
         else if (step==2){
             this.src="res/thief.png"
             classTag.innerHTML = "Вор"
             Player.characterType="Вор"
             document.getElementById("billyPick").src = "res/billythief.png";
+            document.getElementById("playerPic").src = "res/billythief.png";
         }
         else if(step==3){
             this.src="res/mage.png"
             classTag.innerHTML = "Маг"
             Player.characterType="Маг"
             document.getElementById("billyPick").src = "res/billymag.png";
+            document.getElementById("playerPic").src = "res/billymag.png";
             step=0;
             
         };
@@ -52,6 +55,10 @@
         document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","mapDiv")
         document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","dialogueDiv")
         document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","dialogueWindow")
+        document.getElementById("mapDiv").oncontextmenu = function(){
+            document.getElementById("inventoryWindow").style.visibility = "visible";
+        }
+
     }
 
    	var counter = 10

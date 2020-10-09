@@ -1,3 +1,4 @@
+var ol = document.createElement("ol");
 function toDialogue(message){
     var dialogueWindow = document.getElementById("dialogueWindow");
     var p = document.createElement("p");
@@ -6,8 +7,15 @@ function toDialogue(message){
 }
 
 function playerAnswer(answer){
-    var li = document.createElement("li");
-    console.log(answer);
-    li.setAttribute("id","playerAnswer");
-    ol.appendChild(li).innerHTML = answer;
+    toString(answer);
+    if(!answer.trim()){
+        console.log("wrong door")
+    }
+    else {
+        var li = document.createElement("li");
+        console.log(answer);
+        li.setAttribute("id","playerAnswer");
+        ol.appendChild(li).innerHTML = answer;
+    }
 }
+

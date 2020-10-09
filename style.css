@@ -121,6 +121,9 @@ body {
    
    margin-top: 1%;
 }
+#playerAnswer:hover{
+   color:red;
+}
 
 #inventoryWindow {
    border:1px solid lime;
@@ -135,6 +138,7 @@ body {
    background-color: khaki;
    visibility: hidden;
    z-index: 10000;
+   
 }
 
 #equipedItems{
@@ -175,4 +179,6 @@ body {
    height: 30%;
    margin: auto;
    margin-top: 22%;
+   
+   z-index: 1000;
 }
