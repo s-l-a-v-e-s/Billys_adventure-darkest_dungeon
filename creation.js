@@ -46,14 +46,6 @@
 
     }
 
-    function confirmCharacter(){
-        getName();
-        console.log(Player);
-        document.getElementById("creation").style.opacity = 0;
-        setTimeout(removeCreation,2000)
-    }
-    
-
    	var counter = 10
 	var str = document.getElementById("strengthCrt");
 	var agi = document.getElementById("agilityCrt");
@@ -114,6 +106,19 @@
         document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","mapDiv");
         document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","dialogueDiv");
         document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","dialogueWindow");
-
+        document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","ans1");
+        document.getElementById("ans1").classList.add('answerTab');
+        document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","ans2");
+        document.getElementById("ans2").classList.add('answerTab');
+        document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","ans3");
+        document.getElementById("ans3").classList.add('answerTab');
+        document.body.appendChild(document.createElement("script")).src = "dialogues.js"
     }
     
+    function confirmCharacter(){
+        getName();
+        console.log(Player);
+        document.getElementById("creation").style.opacity = 0;
+        setTimeout(removeCreation,2000);
+      
+    }

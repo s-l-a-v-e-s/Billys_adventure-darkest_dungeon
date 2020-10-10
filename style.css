@@ -78,32 +78,54 @@ body {
    width: 50%;
    height: 28%;
    margin: auto;
-   margin-top: 3%;
+   margin-top: 0%;
    display: inline-flex;
    justify-content:center;
    background-image: url("res/dialogue.png");
    background-size:100%;
-   
-   
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: row;
 }
 #dialogueWindow::-webkit-scrollbar {
    width: 7px;
    background-color: #f9f9fd;
 }
-#dialogueDiv p {
+.playerAnswer{
+   color:white;
+	font-size:12px;
+   font-family: 'Press Start 2P', cursive;
+   text-shadow: 1px 1px 3px black;
+   margin: auto;
+   margin-top: 3%;
+   margin-left: 5%;
+   
+}
+#dialogueWindow p {
    color:white;
 	font-size:13px;
    font-family: 'Press Start 2P', cursive;
    text-shadow: 1px 1px 2px black;
    margin: 0%;
+   text-indent: 20px;
+   
+   
 }
 #dialogueWindow{
-   
    height: 74%;
    width: 94%;
    margin: auto;
    margin-top: 10%;
    overflow-y: auto;
+}
+.answerTab{
+   width: 94%;
+   height: 18%;
+   margin: auto;
+   margin-top: 3%;
+   background-image: url("res/answerTab.png");
+   background-size: contain;
+   background-repeat: no-repeat;
 }
 
 #params {
@@ -120,18 +142,11 @@ body {
    background-image: url(" ");
    
 }
-#playerAnswer{
-   color:white;
-	font-size:12px;
-   font-family: 'Press Start 2P', cursive;
-   text-shadow: 1px 1px 3px black;
-   margin: 0%;
-   
-   margin-top: 1%;
-}
-#playerAnswer:hover{
+
+.playerAnswer:hover{
    color:red;
 }
+
 
 #inventoryWindow {
    border:1px solid lime;
@@ -187,6 +202,5 @@ body {
    height: 30%;
    margin: auto;
    margin-top: 22%;
-   
    z-index: 1000;
 }
