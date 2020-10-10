@@ -1,3 +1,5 @@
+inventoryCanvas = document.getElementById("playerInventory");
+
 class Item{
     constructor(name,img,description){
         this.name = name;
@@ -35,4 +37,17 @@ class EquipmentItem extends Item {
 	}*/
 }
 
+function draw(){
+	var ctx = document.getElementById("playerInventory").getContext('2d');
+	ctx.mozImageSmoothingEnabled = false;
+	ctx.webkitImageSmoothingEnabled = false;
+	ctx.msImageSmoothingEnabled = false;
+	ctx.imageSmoothingEnabled = false;
+	var width=675;
+	var height=925;
+	if(inventoryCanvas.getContext){
+
+
+	}
+setInterval(draw(),1000);
 

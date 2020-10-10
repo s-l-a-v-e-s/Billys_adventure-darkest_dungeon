@@ -114,13 +114,15 @@
         document.getElementById("ans3").classList.add('answerTab');
         document.body.appendChild(document.createElement("script")).src = "dialogues.js";
         document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","navPanel");
-        
+        document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
+        document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
+        document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
     }
     
     function confirmCharacter(){
         getName();
         console.log(Player);
         document.getElementById("creation").style.opacity = 0;
-        setTimeout(removeCreation,2000);
+        setTimeout(removeCreation,1000);
       
     }

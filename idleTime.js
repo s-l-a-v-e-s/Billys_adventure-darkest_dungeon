@@ -1,0 +1,7 @@
+function idle(){
+
+}
+
+function openInventory(){
+    
+}
