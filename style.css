@@ -14,7 +14,7 @@
    z-index: 500;
 }
 .creation{
-transition: all 2s linear;
+transition: all 1s linear;
 }
 
 
@@ -62,23 +62,40 @@ body {
    margin-bottom: 0%;
    flex-grow:1;
 }
+#navPanel{
+   box-shadow: 0 0 5px 2px;
+   width: 60%;
+   margin: auto;
+   margin-top: 3%;
+   margin-left: 10%;
+   margin-right:10%;
+   height: 6%;
+   background-image: url("res/room.png");
+   background-size: cover;
+   background-position-y: center;
+   flex-grow:1;
+}
 #mapDiv{
    box-shadow: 0 0 5px 2px;
    width: 40%;
    height: 45%;
    margin: auto;
-   margin-top: 0%;
+   margin-top: 3%;
    display: inline-flex;
+   visibility: visible;
+   position: relative;
    background-image: url("res/map.jpg");
    background-size:cover;
    background-position:center;
+   z-index: 100;
 }
 #dialogueDiv {
    box-shadow: 0 0 5px 2px;
    width: 50%;
    height: 28%;
    margin: auto;
-   margin-top: 0%;
+   margin-top: 3%;
+   margin-bottom: 15%;
    display: inline-flex;
    justify-content:center;
    background-image: url("res/dialogue.png");
@@ -130,12 +147,13 @@ body {
 
 #params {
    width: 50%;
+   height: 40%;
    display: inline-block;
 }
 #billyPick{
    box-shadow: 0 0 5px 2px;
    display: inline-block;
-   position: relative;
+   
    width: 30%;
    margin: auto;
    height: 30%;
@@ -178,13 +196,23 @@ body {
    margin: auto;
    border: 1px solid indigo;
 }
-#playerImg,#playerInv {
+#playerInv {
    margin: auto;
    width: 50%;
    height: 100%;
    position: relative;
    z-index: 0;
    border: 2px solid red;
+}
+#playerImg{
+   margin: auto;
+   width: 50%;
+   height: 100%;
+   position: relative;
+   z-index: 0;
+   border: 2px solid red;
+   background-image: url("res/invPlayerImage.png");
+   background-size: cover;
 }
 
 #playerChars{
@@ -202,5 +230,6 @@ body {
    height: 30%;
    margin: auto;
    margin-top: 22%;
+   margin-left: 33%;
    z-index: 1000;
 }

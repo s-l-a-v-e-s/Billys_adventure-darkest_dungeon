@@ -18,8 +18,8 @@ class InventoryItem extends Item {
 class EquipmentItem extends Item {
 	constructor(name, img, description){
 		super(name, img, description);
-	}
 
+	}
 
 	//Методы наложения эффектов на хар-ки персонажей
 	//Предполагается, что при каждом действии будут проверяться слоты экипировки и вызываться эти методы

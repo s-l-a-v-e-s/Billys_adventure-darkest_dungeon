@@ -36,6 +36,10 @@ function createDialogue(message,answer){
 
 document.getElementById("mapDiv").onclick = function(){
     createDialogue(prompt(),[prompt(),"bb","c"],true);
+    
+}
+ document.getElementById("pictureDiv").onclick=  function(){
+   document.getElementById("inventoryWindow").style.visibility = "visible";
 }
 
 
@@ -45,13 +49,13 @@ document.getElementById("mapDiv").onclick = function(){
         li.setAttribute("onclick","confirm(this.id)");
         console.log(li.parentNode.id)
         
-         var ol = document.createElement("ol");
-    var dialogueWindow = document.getElementById("dialogueWindow");
-    var p = document.createElement("p");
-	dialogueWindow.appendChild(p).innerHTML = message;
-    p.scrollIntoView();
-    dialogueWindow.appendChild(ol);
-    return ol;
+        var ol = document.createElement("ol");
+        var dialogueWindow = document.getElementById("dialogueWindow");
+        var p = document.createElement("p");
+        dialogueWindow.appendChild(p).innerHTML = message;
+        p.scrollIntoView();
+        dialogueWindow.appendChild(ol);
+        return ol;
         
         
         */

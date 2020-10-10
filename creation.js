@@ -112,7 +112,9 @@
         document.getElementById("ans2").classList.add('answerTab');
         document.getElementById("dialogueDiv").appendChild(document.createElement("div")).setAttribute("id","ans3");
         document.getElementById("ans3").classList.add('answerTab');
-        document.body.appendChild(document.createElement("script")).src = "dialogues.js"
+        document.body.appendChild(document.createElement("script")).src = "dialogues.js";
+        document.getElementById("mainTable").appendChild(document.createElement("div")).setAttribute("id","navPanel");
+        
     }
     
     function confirmCharacter(){
