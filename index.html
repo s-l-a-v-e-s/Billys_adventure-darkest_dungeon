@@ -5,7 +5,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body onkeydown="playSound('res/sounds/creationMusic.wav')">
         
     <div id="creation" class="creation">
         <div id="params">
@@ -38,7 +38,8 @@
         <div id="playerInv"><canvas id="playerInventory" width="675px" height="925px"></canvas></div>
         
     </div>
-        
+        <video id="videoSound" src="" preload="auto"><audio id="gameSound" type="audio/wav"></audio></video>;
+        <script src=soundSystem.js></script>
         <script src=creation.js></script>
         <script src=playerInventory.js></script>
       </body>

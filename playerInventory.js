@@ -46,8 +46,9 @@ function draw(){
 	var width=675;
 	var height=925;
 	if(inventoryCanvas.getContext){
-
+		
 
 	}
 setInterval(draw(),1000);
 
+}

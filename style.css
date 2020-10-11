@@ -34,7 +34,6 @@ transition: all 1s linear;
    margin: auto;
    background-image: url(res/bgc.jpg);
    background-repeat: repeat;
-   padding-top: 1%;
    display: flex;
    flex-wrap: wrap;
    justify-content:center;
@@ -46,6 +45,7 @@ body {
    background-image: url("res/tableFone.png");
    background-size:cover;
    background-attachment:fixed;
+   margin: 0%;
 }
 
 #pictureDiv{
@@ -62,22 +62,7 @@ body {
    margin-bottom: 0%;
    flex-grow:1;
 }
-#navPanel{
-   box-shadow: 0 0 5px 2px;
-   width: 60%;
-   margin: auto;
-   margin-top: 3%;
-   margin-left: 10%;
-   margin-right:10%;
-   height: 6%;
-   background-image: url("res/room.png");
-   background-size: cover;
-   background-position-y: center;
-   flex-grow:1;
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
-}
+
 #mapDiv{
    box-shadow: 0 0 5px 2px;
    width: 40%;
@@ -239,8 +224,31 @@ body {
    margin-left: 33%;
    z-index: 1000;
 }
-
+#navPanel{
+   box-shadow: 0 0 5px 2px;
+   width: 20%;
+   margin-bottom: 0%;
+   margin-top: 1%;
+   margin-left: 40%;
+   margin-right:40%;
+   height: 6%;
+   background-image: url("res/room.png");
+   background-size: cover;
+   background-position-y: center;
+   flex-grow:1;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-content: center;
+}
 .navButton{
-   border: 1px solid red;
    margin: auto;
+   width: 18%;
+   height: 70%;
+   background-image: url("res/button.png");
+   background-size:100%;
+}
+#videoSound {
+   position: fixed;
+   z-index: 10;
 }

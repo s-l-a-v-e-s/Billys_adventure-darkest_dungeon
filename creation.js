@@ -1,5 +1,6 @@
 ﻿var Player = {
    name:'',
+   level:0,
    characterType:'',
    agility:'',
    intellegence:0,
@@ -7,13 +8,12 @@
    luck:0,
 }
 
-
 /*************************************************************/  
     var step = 0;
     classButton = document.getElementById("classButton");
     classTag = document.getElementById("classTag");
    
-    function getName(){
+    function setName(){
         Player.name = document.getElementById("playerName").value;
         console.log(Player.name)
     }
@@ -117,12 +117,25 @@
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
+        playSound('res/sounds/mainTheme.wav');
     }
     
     function confirmCharacter(){
-        getName();
-        console.log(Player);
-        document.getElementById("creation").style.opacity = 0;
-        setTimeout(removeCreation,1000);
-      
+        setName();
+        if(Player.name==null||Player.name==""){
+            alert("Дружок пирожок, ты видимо попутал.Введи имя");
+        }
+        else{
+            if(Player.characterType==null||Player.characterType=="")
+            {
+                alert("Дружок пирожок, ты видимо попутал.Выбери класс");
+            }
+            else {
+                console.log(Player);
+                document.getElementById("creation").style.opacity = 0;
+                setTimeout(removeCreation,1000);
+            }
+        
+        }
     }
+    
