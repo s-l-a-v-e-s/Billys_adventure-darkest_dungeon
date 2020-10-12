@@ -1,8 +1,8 @@
 ﻿var Player = {
    name:'',
-   level:0,
    characterType:'',
-   agility:'',
+   level:0,
+   agility:0,
    intellegence:0,
    strength:0,
    luck:0,

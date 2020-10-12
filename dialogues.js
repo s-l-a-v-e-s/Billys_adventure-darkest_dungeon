@@ -38,8 +38,16 @@ document.getElementById("mapDiv").onclick = function(){
     createDialogue(prompt(),[prompt(),"bb","c"],true);
     
 }
- document.getElementById("pictureDiv").onclick=  function(){
-   document.getElementById("inventoryWindow").style.visibility = "visible";
+ document.getElementsByClassName('navButton')[0].onclick=  function(){
+   
+   if(document.getElementById("inventoryWindow").style.visibility == "visible"){
+        document.getElementById("inventoryWindow").style.visibility = "hidden";
+        document.getElementById("inventoryShadow").style.visibility = "hidden";
+   }
+   else {
+        document.getElementById("inventoryWindow").style.visibility = "visible";
+        document.getElementById("inventoryShadow").style.visibility = "visible";
+   }
 }
 
 

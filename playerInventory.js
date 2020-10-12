@@ -1,4 +1,7 @@
 inventoryCanvas = document.getElementById("playerInventory");
+var inventoryMassive;
+
+
 
 class Item{
     constructor(name,img,description){
@@ -12,7 +15,7 @@ class InventoryItem extends Item {
     constructor(name,img,description,consumable,stack) {
         super(name,img,description);
         this.consumable = consumable;
-        this.stack = stack;
+		this.stack = stack;
     }
 }
 
@@ -20,7 +23,14 @@ class InventoryItem extends Item {
 class EquipmentItem extends Item {
 	constructor(name, img, description){
 		super(name, img, description);
+	}
 
+	enableBattleEffects() {
+		
+	}
+
+	enablePassiveEffects() {
+		
 	}
 
 	//Методы наложения эффектов на хар-ки персонажей
@@ -28,27 +38,7 @@ class EquipmentItem extends Item {
 	//Например: Амулет самого быстрого dick'a на dick'ом западе вешает бусты к скорости отката cumming из посоха
 	//Происходит удар игрока по slav'у и в этот момент срабатывает метод enableBattleEffects, в котором прописано player.cumAttackCooldown *= 0,5
 
-	/*function enableBattleEffects() {
-		
-	}
-
-	function enablePassiveEffects() {
-		
-	}*/
-}
-
-function draw(){
-	var ctx = document.getElementById("playerInventory").getContext('2d');
-	ctx.mozImageSmoothingEnabled = false;
-	ctx.webkitImageSmoothingEnabled = false;
-	ctx.msImageSmoothingEnabled = false;
-	ctx.imageSmoothingEnabled = false;
-	var width=675;
-	var height=925;
-	if(inventoryCanvas.getContext){
-		
-
-	}
-setInterval(draw(),1000);
 
 }
+
+
