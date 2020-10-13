@@ -2,20 +2,24 @@
    name:'',
    characterType:'',
    level:0,
-   agility:0,
-   intellegence:0,
-   strength:0,
-   luck:0,
+   agility:1,
+   intellegence:1,
+   strength:1,
+   luck:1,
 }
 
 /*************************************************************/  
     var step = 0;
     classButton = document.getElementById("classButton");
     classTag = document.getElementById("classTag");
+    var counter = 10
+	var str = document.getElementById("strengthCrt");
+	var agi = document.getElementById("agilityCrt");
+	var int = document.getElementById("intellegenceCrt");
    
     function setName(){
         Player.name = document.getElementById("playerName").value;
-        console.log(Player.name)
+
     }
 
     classButton.onclick = function(){
@@ -46,10 +50,7 @@
 
     }
 
-   	var counter = 10
-	var str = document.getElementById("strengthCrt");
-	var agi = document.getElementById("agilityCrt");
-	var int = document.getElementById("intellegenceCrt");
+  
 
     function plusSkill(skillType){
 		if(counter > 0){
@@ -78,17 +79,17 @@
     function minusSkill(skillType){
             
             if(counter < 10){
-                if(skillType==1 && Player.strength > 0){
+                if(skillType==1 && Player.strength > 1){
                     Player.strength--;
                     str.innerHTML = Player.strength;
                     counter++;
                 }
-                    else if(skillType==2 && Player.agility > 0){
+                    else if(skillType==2 && Player.agility > 1){
                     Player.agility--;
                     agi.innerHTML = Player.agility;
                     counter++;
                 }
-                    else if(skillType==3 && Player.intellegence > 0){
+                    else if(skillType==3 && Player.intellegence > 1){
                     Player.intellegence--;
                     int.innerHTML = Player.intellegence;
                     counter++;
@@ -117,7 +118,7 @@
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
         document.getElementById("navPanel").appendChild(document.createElement("div")).classList.add("navButton");
-        playSound('res/sounds/mainTheme.wav');
+        playSound('res/sounds/mainTheme.wav',"0.1");
     }
     
     function confirmCharacter(){
@@ -128,14 +129,13 @@
         else{
             if(Player.characterType==null||Player.characterType=="")
             {
-                alert("Дружок пирожок, ты видимо попутал.Выбери класс");
+                alert("Дружок пирожок, ты видимо попутал.Выбери кл♂ass♂");
             }
             else {
                 console.log(Player);
                 document.getElementById("creation").style.opacity = 0;
+                createInventory();
                 setTimeout(removeCreation,1000);
             }
-        
         }
     }
-    

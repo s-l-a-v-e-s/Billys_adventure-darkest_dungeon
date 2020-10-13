@@ -34,10 +34,6 @@ function createDialogue(message,answer){
 
 
 
-document.getElementById("mapDiv").onclick = function(){
-    createDialogue(prompt(),[prompt(),"bb","c"],true);
-    
-}
  document.getElementsByClassName('navButton')[0].onclick=  function(){
    
    if(document.getElementById("inventoryWindow").style.visibility == "visible"){
@@ -47,6 +43,7 @@ document.getElementById("mapDiv").onclick = function(){
    else {
         document.getElementById("inventoryWindow").style.visibility = "visible";
         document.getElementById("inventoryShadow").style.visibility = "visible";
+        drawInventory();
    }
 }
 

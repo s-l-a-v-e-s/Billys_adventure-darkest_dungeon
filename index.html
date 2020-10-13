@@ -2,44 +2,52 @@
     <head>
 	<meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="sound.css">
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
     </head>
-    <body onkeydown="playSound('res/sounds/creationMusic.wav')">
-        
+    <body>
+        <div id="soundSelectShadow">
+            <div id="soundSelect">
+                <div id="soundText"><p>Включить звук?</p></div>
+                <div class="soundButtonCh" id="soundYes"></div>
+                <div class="soundButtonCh" id="soundNo"></div>
+            </div>
+        </div>
+
     <div id="creation" class="creation">
         <div id="params">
             <h1 id=typeName>Ваше имя</h1>
-            <input id=playerName></input><br><br>
+            <input id=playerName></input>
             <img src="res/unknown.png" alt="" id=classButton></img>
             <p id=classTag>Класс</p>
-            <input onclick="confirmCharacter()" type="submit" value="отправить"/>
+            <input onclick="confirmCharacter()" type="submit" value="Создать" id="createButton"/>
             <p id="counter">10</p>
 		<p>Сила</p>
-		<div id="divStrength"><br><input type=button value="-" onclick="minusSkill(1)"><p id="strengthCrt">0</p><input onclick="plusSkill(1)" type=button value="+"></div>
+		<div id="divStrength"><input type=button value="-" onclick="minusSkill(1)"><p id="strengthCrt">1</p><input onclick="plusSkill(1)" type=button value="+"></div>
 		<p>Ловкость</p>
-		<div id="divAgility"><input type=button value="-" onclick="minusSkill(2)"><p id="agilityCrt">0</p><input type=button value="+" onclick="plusSkill(2)"></div>
+		<div id="divAgility"><input type=button value="-" onclick="minusSkill(2)"><p id="agilityCrt">1</p><input type=button value="+" onclick="plusSkill(2)"></div>
 		<p>Интелект</p>
-		<div id="divIntellegence"><input type=button value="-" onclick="minusSkill(3)"><p id="intellegenceCrt">0</p><input type=button value="+" onclick="plusSkill(3)"></div>
+		<div id="divIntellegence"><input type=button value="-" onclick="minusSkill(3)"><p id="intellegenceCrt">1</p><input type=button value="+" onclick="plusSkill(3)"></div>
         </div>
         <img id="billyPick"src="res/who.png">
     </div>
+
+
     <div id="inventoryShadow">
-    <div id="inventoryWindow">
-            <div id="equipedItems">
-                <div id="hat"></div>
-                <div id="bodyArmor"></div>
-                <div id="amulet"></div>
-                <div id="weapon"></div>
-            </div>
-            <div id="playerImg">
-                <img id="playerPic" src="">
-            </div>
-            <div id="playerInv"><canvas id="playerInventory" width="675px" height="925px"></canvas></div>
-            
+        <div id="inventoryWindow">
+                <div id="equipedItems">
+                    <div id="hat"></div>
+                    <div id="bodyArmor"></div>
+                    <div id="amulet"></div>
+                    <div id="weapon"></div>
+                </div>
+                <div id="playerImg">
+                    <img id="playerPic" src="">
+                </div>
+                <div id="playerInv"><canvas id="playerInventory" width="675px" height="925px"></canvas></div>   
         </div>
     </div>
-        <video id="videoSound" src="" preload="auto"><audio id="gameSound" type="audio/wav"></audio></video>;
+        <video id="videoSound" src="" preload="auto"><audio id="gameSound" type="audio/wav"></audio></video>
         <script src=soundSystem.js></script>
         <script src=creation.js></script>
         <script src=playerInventory.js></script>

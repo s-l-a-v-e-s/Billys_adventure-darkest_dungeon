@@ -1,16 +1,18 @@
 #creation {
-   border:2px solid red;
    margin: auto;
    margin-top:15%;
    text-align: center;
+   margin-left: 35%;
+   margin-right: 35%;
    font-family: 'Press Start 2P', cursive;
    font-size: 12px;
    height: auto;
-   width: 45%;
+   width: 30%;
    color:white;
    padding: 0%;
+   display:flex;
    opacity: 100;
-   position: relative;
+   position: fixed;
    z-index: 500;
 }
 .creation{
@@ -23,10 +25,53 @@ transition: all 1s linear;
 	}
 
 #divStrength,#divAgility,#divIntellegence{
-	display:flex;
+   display:flex;
 	align-items:center;
 	justify-content:center;
 }
+#params {
+   width: 50%;
+   height: 40%;
+   display: flex;
+   flex-direction: column;
+   padding: 5%;
+}
+#typeName{
+   width: 50%;
+   height: 10%;
+   margin-left: 25%;
+   margin-right: 25%;
+   text-shadow: 1px 1px 2px black;
+}
+#playerName{
+   width: 50%;
+   height: 10%;
+   margin: auto;
+}
+
+#classButton{
+   width: 15%;
+   height: 15%;
+   margin: auto;
+   margin-top: 3%;
+}
+#createButton{
+   width: 50%;
+   height: 10%;
+   margin: auto;
+}
+#billyPick{
+   box-shadow: 0 0 5px 2px;
+   width: 30%;
+   margin: auto;
+   height: 30%;
+   background-image: url("");
+   background-size: cover;
+}
+
+
+
+
 #mainTable {
    height: 98%;
    width: 60%;
@@ -46,6 +91,7 @@ body {
    background-size:cover;
    background-attachment:fixed;
    margin: 0%;
+   padding: 0%;
 }
 
 #pictureDiv{
@@ -133,21 +179,6 @@ body {
    background-repeat: no-repeat;
 }
 
-#params {
-   width: 50%;
-   height: 40%;
-   display: inline-block;
-}
-#billyPick{
-   box-shadow: 0 0 5px 2px;
-   display: inline-block;
-   
-   width: 30%;
-   margin: auto;
-   height: 30%;
-   background-image: url(" ");
-   
-}
 
 .playerAnswer:hover{
    color:red;
@@ -166,7 +197,6 @@ body {
    left:20%;
    visibility: hidden;
    z-index: 10000;
-   background-color: burlywood;
 }
 #inventoryShadow{
    width: 100%;
@@ -260,4 +290,5 @@ body {
 #videoSound {
    position: fixed;
    z-index: 10;
+   display: none;
 }
