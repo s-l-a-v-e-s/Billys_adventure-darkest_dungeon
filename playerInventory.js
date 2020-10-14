@@ -64,7 +64,7 @@ class EquipmentItem extends Item {
 
 
 }
-var drawInvSlot = function(source,x,y,width,height){
+function drawInvSlot(source,x,y,width,height){
 	let img = new Image();
 	if(source==''||source==null)
 	{
@@ -77,6 +77,11 @@ var drawInvSlot = function(source,x,y,width,height){
 		context.drawImage(img, x, y, width, height);
 	}		
 }
+
+function setActiveBorder(x,y,width,height){
+	context.strokeRect(x, y, width, height);
+}
+
 var InventorySlot = function(source,x,y,width,height){
 	this.source = source;
 	this.x = x;
@@ -92,6 +97,9 @@ InventorySlot.prototype = {
 	},
 	select:function(){
 		this.selected =!this.selected;
+	},
+	setBorder:function(){
+		setActiveBorder(this.x,this.y,this.width,this.height);
 	}
 }
 function createInventory(){
@@ -108,7 +116,6 @@ function createInventory(){
 	function drawInventory(){
 		for(let i=0;i<8;i++){
 			for(let k=0;k<6;k++){
-				
 				slotsImg[i][k].draw();
 				}
 			}
@@ -121,7 +128,8 @@ function createInventory(){
 			}
 
 	}
-
+	var buffed=0;
+	context.strokeStyle='red';
 	canvas.onclick = function(e){
 		console.log(e);
 		var x = e.layerX,
@@ -129,16 +137,21 @@ function createInventory(){
 		for(let i=0;i<8;i++){
 			for(let k=0;k<6;k++){
 				if(isSlotInMousePos(x,y,slotsImg[i][k])){
+						if(buffed!=0){
+							context.clearRect(buffed.x-1,buffed.y-1,buffed.width+2,buffed.height+2);
+							console.log(buffed);
+							buffed.selected = false;
+							buffed = slotsImg[i][k];
+						}
+						else{buffed = slotsImg[i][k];}
 						slotsImg[i][k].select();
-						slotsImg[i][k].source = 'res/mage.png';
-						console.log(slotsImg[i][k].source);
-						console.log(slotsImg[i][k].selected);
-					}
+						slotsImg[i][k].setBorder();
+						console.log(slotsImg[i][k]);
 				}
 			}
+		}
 		drawInventory();
 	}
-	
 
 
 
