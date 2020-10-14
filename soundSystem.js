@@ -17,7 +17,7 @@ document.getElementById("soundYes").onclick = function(){
     soundState = true;
     playSound("res/sounds/creationMusic.wav","0.1");
     document.getElementById("soundSelectShadow").remove();
-    createInventory();   
+
 }
 
 document.getElementById("soundNo").onclick = function(){

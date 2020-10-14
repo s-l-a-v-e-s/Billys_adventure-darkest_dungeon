@@ -134,7 +134,7 @@
             else {
                 console.log(Player);
                 document.getElementById("creation").style.opacity = 0;
-                createInventory();
+                createInventory();   
                 setTimeout(removeCreation,1000);
             }
         }

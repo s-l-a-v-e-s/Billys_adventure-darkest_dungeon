@@ -34,8 +34,9 @@ function createDialogue(message,answer){
 
 
 
- document.getElementsByClassName('navButton')[0].onclick=  function(){
-   
+
+document.getElementsByClassName('navButton')[0].onclick = function(){
+    
    if(document.getElementById("inventoryWindow").style.visibility == "visible"){
         document.getElementById("inventoryWindow").style.visibility = "hidden";
         document.getElementById("inventoryShadow").style.visibility = "hidden";
@@ -46,7 +47,6 @@ function createDialogue(message,answer){
         drawInventory();
    }
 }
-
 
 
 /*ol.appendChild(li).innerHTML = answer;
