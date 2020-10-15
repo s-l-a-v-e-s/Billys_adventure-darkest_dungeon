@@ -89,6 +89,13 @@ function drawInvSlot(source,x,y,width,height){
 	}		
 }
 
+
+function switchItemDescInformation(item) {
+	document.getElementById("descItem_img").src = item.img;
+	document.getElementById("descItem_name").innerHTML = item.name;
+	document.getElementById("descItem_description").innerHTML = item.description;
+}
+
 function setActiveBorder(x,y,width,height){
 	context.strokeRect(x, y, width, height);
 }
@@ -193,6 +200,7 @@ function createInventory(){
 						else{buffed = slotsImg[i][k];}
 						slotsImg[i][k].select();
 						slotsImg[i][k].setBorder();
+						switchItemDescInformation(inventorySlots[i][k]);
 						if(inventorySlots[i][k].name!=null||inventorySlots[i][k].name!=''){
 							console.log(inventorySlots[i][k]);
 						}
