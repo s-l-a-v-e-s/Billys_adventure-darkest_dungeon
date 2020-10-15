@@ -33,7 +33,10 @@ function createDialogue(message,answer){
 }
 
 
-
+document.getElementById('mapDiv').onclick = function(e){
+    console.log(e);
+    addItemToInv(new InventoryItem('Bottle of CUM','res/cum.png','C.U.M. - cursed urinal marinade',true,10));
+}
 
 document.getElementsByClassName('navButton')[0].onclick = function(){
     

@@ -122,20 +122,23 @@
     }
     
     function confirmCharacter(){
-        setName();
-        if(Player.name==null||Player.name==""){
-            alert("Дружок пирожок, ты видимо попутал.Введи имя");
-        }
-        else{
-            if(Player.characterType==null||Player.characterType=="")
-            {
-                alert("Дружок пирожок, ты видимо попутал.Выбери кл♂ass♂");
-            }
-            else {
-                console.log(Player);
-                document.getElementById("creation").style.opacity = 0;
+        // setName();
+        // if(Player.name==null||Player.name==""){
+        //     alert("Дружок пирожок, ты видимо попутал.Введи имя");
+        // }
+        // else{
+        //     if(Player.characterType==null||Player.characterType=="")
+        //     {
+        //         alert("Дружок пирожок, ты видимо попутал.Выбери кл♂ass♂");
+        //     }
+        //     else {
+        //         console.log(Player);
+        //         document.getElementById("creation").style.opacity = 0;
+        //         createInventory();   
+        //         setTimeout(removeCreation,1000);
+        //     }
+        // }
+        document.getElementById("creation").style.opacity = 0;
                 createInventory();   
                 setTimeout(removeCreation,1000);
-            }
-        }
     }

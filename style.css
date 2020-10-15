@@ -92,7 +92,6 @@ body {
    background-size:cover;
    background-attachment:fixed;
    margin: auto;
-   
    padding: 0%;
 }
 
@@ -207,6 +206,7 @@ body {
    z-index: 9000;
    background: rgba(0,0,0, 0.7);
    visibility: hidden;
+   margin: 0%;
 }
 
 #equipedItems{
