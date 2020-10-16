@@ -124,7 +124,7 @@ InventorySlot.prototype = {
 function createInventory(){
 	for(let i=0;i<invWidth;i++){
 		for(let k=0;k<invHeight;k++){
-			inventorySlots[i][k]=new InventoryItem('','','',null,0);
+			inventorySlots[i][k]=new InventoryItem('','','',null,0,null,null,null,null);
 			slotsImg[i][k] = new InventorySlot(inventorySlots[i][k].img,89+k*45,20+i*45,40,40);
 		}
 	}
@@ -150,16 +150,14 @@ function createInventory(){
 	var addItemToInv = function(item){
 	if(inventorySlots[7][5].name==''||inventorySlots[7][5].name==null){
 		
-		if(item.stack>1){
+		if(item.stack>=1){
 			for(let d=0;d<invWidth;d++){
 				for(let c=0;c<invHeight;c++){
 					if(item.name==inventorySlots[d][c].name && inventorySlots[d][c].quantity<item.stack){
-						console.log(1);
 						inventorySlots[d][c].quantity++;
 						return;
 						}
 					else if((item.name==inventorySlots[d][c].name && inventorySlots[d][c].quantity==item.stack)||inventorySlots[d][c].stack==0){
-						console.log(inventorySlots[d][c].quantity);
 						for(let r=0;r<invWidth;r++){
 							for(let z=0;z<invHeight;z++){
 								if(inventorySlots[r][z].name==null||inventorySlots[r][z].name==''){
@@ -201,16 +199,10 @@ function createInventory(){
 						slotsImg[i][k].select();
 						slotsImg[i][k].setBorder();
 						switchItemDescInformation(inventorySlots[i][k]);
-						if(inventorySlots[i][k].name!=null||inventorySlots[i][k].name!=''){
-							console.log(inventorySlots[i][k]);
-						}
 						drawInventory();	
 				}
 			}
-		}
-		
+		}	
 	}
-
-
 
 

@@ -35,7 +35,15 @@ function createDialogue(message,answer){
 
 document.getElementById('mapDiv').onclick = function(e){
     console.log(e);
-    addItemToInv(new InventoryItem('Bottle of CUM','res/cum.png','C.U.M. - cursed urinal marinade',true,10));
+    addItemToInv(new InventoryItem('Bottle of CUM','res/cum.png','C.U.M. - cursed urinal marinade',true,64,null,null,null,'potion'));
+}
+
+
+function switchPlayerInformation() {
+    document.getElementById("lvlInf").innerHTML = "Уровень: "+Player.level;
+    document.getElementById("strInf").innerHTML = "Сила: "+Player.strength;
+    document.getElementById("agiInf").innerHTML = "Ловкость: "+Player.agility;
+    document.getElementById("intInf").innerHTML = "Интелект: "+Player.intellegence;
 }
 
 document.getElementsByClassName('navButton')[0].onclick = function(){
@@ -47,6 +55,7 @@ document.getElementsByClassName('navButton')[0].onclick = function(){
    else {
         document.getElementById("inventoryWindow").style.visibility = "visible";
         document.getElementById("inventoryShadow").style.visibility = "visible";
+        switchPlayerInformation();
         drawInventory();
    }
 }

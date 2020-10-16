@@ -5,7 +5,7 @@
    agility:1,
    intellegence:1,
    strength:1,
-   luck:1,
+   expCount:0,
 }
 
 /*************************************************************/  
@@ -49,7 +49,12 @@
         };
 
     }
-
+    function switchPlayerInformation() {
+        document.getElementById("lvlInf").innerHTML = Player.level;
+        document.getElementById("strInf").innerHTML = Player.strength;
+        document.getElementById("agiInf").innerHTML = Player.agility;
+        document.getElementById("intInf").innerHTML = Player.intellegence;
+    }
   
 
     function plusSkill(skillType){
