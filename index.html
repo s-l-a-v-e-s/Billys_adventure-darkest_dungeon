@@ -1,44 +1,69 @@
-﻿<html>
-    <head>
-	<meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-
-    </head>
-    <body>
-        
-    <div id="creation" class="creation">
-        <div id="params">
-            <h1 id=typeName>Ваше имя</h1>
-            <input id=playerName></input><br><br>
-            <img src="res/unknown.png" alt="" id=classButton></img>
-            <p id=classTag>Класс</p>
-            <input onclick="confirmCharacter()" type="submit" value="отправить"/>
-            <p id="counter">10</p>
-		<p>Сила</p>
-		<div id="divStrength"><br><input type=button value="-" onclick="minusSkill(1)"><p id="strengthCrt">0</p><input onclick="plusSkill(1)" type=button value="+"></div>
-		<p>Ловкость</p>
-		<div id="divAgility"><input type=button value="-" onclick="minusSkill(2)"><p id="agilityCrt">0</p><input type=button value="+" onclick="plusSkill(2)"></div>
-		<p>Интелект</p>
-		<div id="divIntellegence"><input type=button value="-" onclick="minusSkill(3)"><p id="intellegenceCrt">0</p><input type=button value="+" onclick="plusSkill(3)"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-menu">
+        <div class="menu-header"></div>
+        <div class="menu">
+            <div class="menu new-game"><h1>Новая игра</h1></div>
+            <div class="menu load"><h1>Загрузить</h1></div>
+            <div class="menu options"><h1>Настройки</h1></div>
+            <div class="menu exit" onclick="window.close()"><h1>Выход</h1></div>
         </div>
-        <img id="billyPick"src="res/who.png">
     </div>
-
-    <div id="inventoryWindow">
-        <div id="equipedItems">
-            <div id="hat"></div>
-            <div id="bodyArmor"></div>
-            <div id="amulet"></div>
-            <div id="weapon"></div>
+    <div class="creation"> 
+        <div class="creation-menu">
+        <div class="creation-header"></div>
+        <div class="class-picker">
+            <div class="classes">
+                <div class="class warrior"></div>
+                <div class="class mage"></div>
+                <div class="class thief"></div>
+            </div>
+            <div class="about-class"></div>
         </div>
-        <div id="playerImg">
-            <img id="playerPic" src="">
+        
+        <div class="player-image"></div>
+        <div class="chars">
+            <div class="max-points"><h1>Осталось</h1><p>10</p></div>
+            <div class="player str">
+                <h1>Сила</h1>
+                <div class="counter"><button name="minus">-</button><p>1</p><button name="plus">+</button>
+                </div>
+            </div>
+            <div class="player int">
+                <h1>Интелект</h1>
+                <div class="counter"><button name="minus">-</button><p>1</p><button name="plus">+</button>
+                </div>
+            </div>
+            <div class="player agi">
+                <h1>Ловкость</h1>
+                <div class="counter"><button name="minus">-</button><p>1</p><button name="plus">+</button>
+                </div>
+            </div>
+            <div class="player luck">
+                <h1>Удача</h1>
+                <div class="counter"><button name="minus">-</button><p>1</p><button name="plus">+</button>
+                </div>
+            </div>
         </div>
-        <div id="playerInv"><div id="playerChars"></div></div>
-        
-    </div>
-        
-        <script src=creation.js></script>
-      </body>
+        <div class="player-name">
+            <input type="text" name="" id="player-name" placeholder="Введите имя">
+            <button class="creation-button">Начать</button>
+            <button class="creation-button">Выйти</button>
+        </div>
+    </div></div>
+   
+    
+    <script src="script.js"></script>
+    <script src="player.js"></script>
+</body>
 </html>

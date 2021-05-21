@@ -1,0 +1,122 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+body{
+    display: flex;
+
+}
+.game{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
+    margin: auto;
+    justify-content: center;
+    
+}
+.main-panel{
+    width: 1405.82px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-top: 60px;
+}
+.main-panel canvas{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main-panel-header{
+    width: 100%;
+    height: 65px;
+    background-image: url(res/main-panel-header.svg);
+}
+
+.event-screen{
+    width: 680px;
+    height: 401px;
+    background-image: url(res/event-screen.svg);
+    background-size:cover;
+    display: flex;
+    flex-wrap: wrap;
+}
+.events{
+    margin-top: 65px;
+    width: 680px;
+    height: 190px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: auto;
+}
+
+.events h1{
+    width: 604px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    text-align: justify;
+    color: #EAC48B;
+}
+.events h1:first-child{
+    margin-top: 29px;
+}
+.events p{
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+    text-indent: 5px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    /* identical to box height */
+    color: #979797;
+}
+
+.event-answers{
+    width: 626px;
+    height: 106px;
+    margin: auto;
+    margin-top: 0%;
+    margin-bottom: 23px;
+    filter: drop-shadow(0px 0px 10px #000000);
+    background-image: url(res/event-answers.svg);
+    display: flex;
+    overflow: auto;
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+.event-answers ol{
+    width: 100%;
+    margin-left: 30px;
+    text-indent: 5px;
+    font-family: El Messiri;
+    text-align: left;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    /* identical to box height */
+    color: #979797;
+}
+.map-screen{
+    width: 611px;
+    height: 401px;
+    margin-left: 23px;
+    background-image: url(res/map-screen.svg);
+    background-size: cover;
+}
+.hot-slots{
+    width: 70px;
+    height: 402px;
+    margin-left: 23px;
+}
