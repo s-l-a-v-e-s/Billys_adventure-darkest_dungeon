@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="inventory.css">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="game"><div class="main-panel">
+        <div class="main-panel-header"></div>
+        <canvas></canvas>
+    </div>
+    <div class="event-screen">
+        <div class="events"></div>
+        <div class="event-answers"></div>
+    </div>
+    <div class="hot-slots"></div>
+    <div class="map-screen"></div>
+    </div>
+    <div class="inventory-shadow">
+        <div class="inventory-screen">
+            <div class="character"></div>
+            <div class="inventory">
+                <canvas width=420px height=650px></canvas>
+                <div class="inventory-popup">
+                    <div class="item-name"><p>Обоссаный щит</p></div>
+                    <div class="item-type"><p>Щит</p></div>
+                    <div class="item-info">
+                        <div class="item-img"></div>
+                        <div class="attack-defence">
+                            <img src="res/def-icon.svg"><h1>15</h1>
+                            <p>Защита</p>
+                        </div>
+                    </div>
+                    <div class="item-chars">
+                        <h1>Характеристики</h1>
+                        <h2>Сила </h2><p class="item str">0</p><br><span></span>
+                        <h2>Интелект </h2><p class="item int">0</p><span></span>
+                        <h2>Ловкость </h2><p class="item agi">0</p><span></span>
+                        <h2>Удача </h2><p class="item luck">0</p ><span></span>
+                    </div>
+                    <div class="popup-buttons"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    <script>
+        let canvas = document.getElementsByClassName("main-panel")[0].children[1];
+        canvas.setAttribute('width', '1405.82px');
+        canvas.setAttribute('height', '469px');
+        let context = canvas.getContext("2d");
+        let img = new Image();
+        
+        img.src = "res/event.svg";
+        img.addEventListener("load",function(){
+            context.drawImage(img,0,0,canvas.width,canvas.height);
+        })
+    </script>
+  
+    <script src="dialogueEvent.js"></script>
+    <script src="inventory.js"></script>
+    
+</body>
+</html>
