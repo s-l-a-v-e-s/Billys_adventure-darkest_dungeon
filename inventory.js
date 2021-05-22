@@ -55,7 +55,7 @@ class Slot{
         this.posX = posX;
         this.posY = posY;
         img.onload = function(){
-            context.clearRect(posX,posY,70,70)
+            context.clearRect(posX,posY,69,69)
             context.drawImage(img,posX,posY,65,65); 
         }
         if(active) {
@@ -101,7 +101,7 @@ class Inventory{
     drawInv(){
         for(let i=0;i<9;i++){
             for(let d=0;d<6;d++){
-                this.#itemMas[i][d].draw(3+d*70,3+i*70,this.#itemMas[i][d].isActive()==true);
+                this.#itemMas[i][d].draw(0+d*69,0+i*69,this.#itemMas[i][d].isActive()==true);
             }       
         }
     }
@@ -236,9 +236,9 @@ let item3 = new EquipmnetItem ("Обоссанный меч","weapon");
     item3.setChars(7,1,-2,1);
     item3.setBImage("res/sword.png");
     item3.setRarity("Epic")
-let item4 = new EquipmnetItem ("Анец","head");
+let item4 = new EquipmnetItem ("♂Анец♂","head");
     item4.setChars(1000,-1000,1000,-1000);
-    item4.setBImage("res/anec.png");
+    item4.setBImage("res/anec.gif");
     item4.setRarity("Legendary")
     
 
@@ -260,7 +260,7 @@ invCanvas.addEventListener("click",function(e){
         y = e.clientY-rect.top;
     let popX = e.pageX,
         popY = e.pageY;
-    inv.setActiveSlot(x+3,y+3)
+    inv.setActiveSlot(x,y)
     inv.drawInv();
     if(switcher==0){
         popup.style.left = popX+5+"px";
@@ -285,6 +285,14 @@ invCanvas.addEventListener("click",function(e){
 })
 
 
+let close1 = document.getElementsByClassName("close-button")[0];
+close1.addEventListener('click',function(){
+    document.getElementsByClassName("inventory-shadow")[0].style.display = "none";
+})
 
+let open1 = document.getElementsByClassName("open-button")[0];
+open1.addEventListener('click',function(){
+    document.getElementsByClassName("inventory-shadow")[0].style.display = "unset";
+})
 
 

@@ -16,10 +16,12 @@ body{
 }
 .main-panel{
     width: 1405.82px;
+    height: 469px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 15px;
-    margin-top: 60px;
+    margin: auto;
+    margin-bottom: 41px;
+    margin-top: 63px;
 }
 .main-panel canvas{
     width: 100%;

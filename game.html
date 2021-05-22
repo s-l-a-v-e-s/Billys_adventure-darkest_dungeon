@@ -10,8 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="game"><div class="main-panel">
-        <div class="main-panel-header"></div>
+    <div class="game">
+        <div class="open-button"></div>
+        <div class="main-panel">
         <canvas></canvas>
     </div>
     <div class="event-screen">
@@ -23,9 +24,10 @@
     </div>
     <div class="inventory-shadow">
         <div class="inventory-screen">
+            <div class="close-button"></div>
             <div class="character"></div>
             <div class="inventory">
-                <canvas width=420px height=650px></canvas>
+                <canvas width=415px height=620px></canvas>
                 <div class="inventory-popup">
                     <div class="item-name"><p>Обоссаный щит</p></div>
                     <div class="item-type"><p>Щит</p></div>
@@ -52,7 +54,7 @@
     
     
     <script>
-        let canvas = document.getElementsByClassName("main-panel")[0].children[1];
+        let canvas = document.getElementsByClassName("main-panel")[0].children[0];
         canvas.setAttribute('width', '1405.82px');
         canvas.setAttribute('height', '469px');
         let context = canvas.getContext("2d");
