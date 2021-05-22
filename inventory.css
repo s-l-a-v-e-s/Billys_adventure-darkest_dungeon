@@ -6,7 +6,10 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background:rgba(0, 0, 0, 0.8);
+    background-image: url(res/body-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
    
 }
 .inventory-screen{
@@ -25,10 +28,41 @@
     width: 688px;
     height: 829px;
     margin: auto;
-    background-color: white;
     background-image: url(res/character-background.svg);
+    display: flex;
+}
+.character-info{
+    width: 225px;
+    height: 693px;
+    background-image: url(res/character-chars-bg.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 92px;
+    margin-left: 23px;
 
 }
+.state {
+    width: 191.82px;
+    height: 179px;
+}
+#equipment {
+    width: 407px;
+    height: 687px;
+    margin-top: 92px;
+    margin-left: 9px;
+   
+}
+
+
+
+
+
+
+
+
+
+
 .inventory {
     width: 491px;
     height: 830px;
@@ -159,6 +193,11 @@ span {
     height: 45px;
     width: 100%;
 }
+.equipB{
+    width: 59px;
+    height: 22px;
+    background: orange;
+}
 .item-img{
     width: 65px;
     height: 65px;
@@ -167,6 +206,7 @@ span {
     margin-left: auto;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 .attack-defence img{
     width: 29px;
