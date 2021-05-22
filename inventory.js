@@ -595,6 +595,14 @@ invCanvas.addEventListener("click",function(e){
         inv.setPopupInfo();
         inv.drawInv();
 })
+invCanvas.addEventListener('dblclick',function(){
+    equip.equipItem(inv.getActiveSlot().assignedItem);
+    inv.closePopup();
+    equip.equipDraw()
+    inv.drawInv();
+})
+       
+
 
 
 equipCanvas.addEventListener('click',function(e){
@@ -629,6 +637,14 @@ equipCanvas.addEventListener('click',function(e){
         equip.setPopupInfo();
         equip.equipDraw();
 })
+equipCanvas.addEventListener("dblclick",function(){
+    equip.unEquipItem(equip.getActiveSlot().assignedItem)
+    equip.closePopup();
+    equip.equipDraw()
+    inv.drawInv();
+})
+
+
 let equipItem = document.getElementsByClassName("equipB")[0];
 equipItem.addEventListener('click',function(){
     if(popButtonSwitch==0){
