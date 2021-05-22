@@ -44,7 +44,7 @@ CanvasRenderingContext2D.prototype.drawRoundedImage = function(image, radius, sx
 	this.restore();
 }
 
-
+let popButtonSwitch;
 let switcher = 0;
 let popup = document.getElementsByClassName("inventory-popup")[0];
 let invCanvas =  document.getElementsByClassName("inventory")[0].children[0];
@@ -194,6 +194,7 @@ class Inventory{
     }
     /*Задать инф о выбранном предмете*/
     setPopupInfo(){
+        let pButton = document.getElementsByClassName("equipB")[0].children[0];
         if(this.#activeSlot.assignedItem==null) {
             popup.style.visibility = "hidden";
             return;
@@ -271,7 +272,7 @@ class Inventory{
             pLuck.style.color = "#E37171";
             pLuck.innerHTML = popItem.luck;
         }
-    
+        pButton.innerHTML = "Надеть";
     }
     closePopup(){
         popup.style.visibility = "hidden";
@@ -295,6 +296,8 @@ class Equipment {
     #itemChest  = new Slot;
     #itemLegs  = new Slot;
     #itemBoots  = new Slot;
+    slots=[this.#itemHead,this.#itemShoulder,this.#itemAmulet,this.#itemWeapon,this.#itemLeftHand,this.#itemChest,this.#itemLegs,this.#itemBoots]
+    #activeSlot;
     equipItem(item){
         let bufItem; 
         switch (item.getEqType()){
@@ -389,6 +392,28 @@ class Equipment {
                 break;
         }
     }
+    unEquipItem(item){
+        inv.addItem(item);
+        equip.#activeSlot.assignedItem = null;
+    }
+    setActiveSlot(x,y){
+        this.slots.forEach(element => {
+            if( x >= element.posX && x <= element.posX  + element.dWidth &&
+                y >= element.posY && y <= element.posY  + element.dHeight){
+                    console.log(element)
+                       if(this.#activeSlot){
+                               this.#activeSlot.isActiveSlot = false;
+                               this.#activeSlot = element;
+                           }
+                           else{ 
+                               this.#activeSlot = element;
+                           }
+                           this.#activeSlot.isActiveSlot = !element.isActiveSlot;
+                           
+                       }    
+                    
+            })       
+    }
     firstInit(){
         let ctx = equipCanvas.getContext("2d");
         let equipMan = new Image();
@@ -398,8 +423,6 @@ class Equipment {
         } 
     }
     equipDraw(){
-      
-
         this.#itemHead.draw(161,28,null,equipCanvas);
         this.#itemShoulder.draw(80,116,null,equipCanvas);
         this.#itemChest.draw(161,204,null,equipCanvas);
@@ -408,6 +431,93 @@ class Equipment {
         this.#itemLeftHand.draw(307,288,null,equipCanvas);
         this.#itemBoots.draw(241,574,null,equipCanvas);
 
+    }
+    getActiveSlot(){return this.#activeSlot}
+    setPopupInfo(){
+        if(this.#activeSlot.assignedItem==null) {
+            popup.style.visibility = "hidden";
+            
+        }
+            let popItem = this.#activeSlot.assignedItem;
+            if(popItem == null) return;
+            let pIName = document.getElementsByClassName("item-name")[0].children[0];
+            let pIType = document.getElementsByClassName("item-type")[0].children[0];
+            let imgItem = document.getElementsByClassName("item-info")[0].children[0];
+            let atkORdfn = document.getElementsByClassName("attack-defence")[0].children[0];
+            let patkORdfn = document.getElementsByClassName("attack-defence")[0].children[2];
+            let pStr = document.getElementsByClassName("str")[0];
+            let pInt = document.getElementsByClassName("int")[0];
+            let pAgi = document.getElementsByClassName("agi")[0];
+            let pLuck = document.getElementsByClassName("luck")[0];
+            let pButton = document.getElementsByClassName("equipB")[0].children[0];
+            if(popItem==null){
+                popup.style.visibility = "hidden";
+            }
+            else{
+                switch(popItem.getRarity()){
+                    case "Common":
+                        popup.style.backgroundImage = "url(res/item-rarity-common.svg)";
+                        break;
+                    case "Uncommon":
+                        popup.style.backgroundImage = "url(res/item-rarity-uncommon.svg)";
+                        break;
+                    case "Rare":
+                        popup.style.backgroundImage = "url(res/item-rarity-rare.svg)";
+                        break;
+                    case "Epic":
+                        popup.style.backgroundImage = "url(res/item-rarity-epic.svg)";
+                        break;
+                    case "Legendary":
+                        popup.style.backgroundImage = "url(res/item-rarity-legendary.svg)";
+                        break;
+                }
+            }
+            pIName.innerHTML = popItem.name;
+            pIType.innerHTML = popItem.getEqType();
+            imgItem.style.backgroundImage = "url("+popItem.getBImage()+")";
+            if(popItem.getEqType()=="weapon") {atkORdfn.src = "res/atk-icon.svg";patkORdfn.innerHTML="Атака"}
+            else {atkORdfn.src ="res/def-icon.svg";patkORdfn.innerHTML="Защита"};
+            /*********Сила**********/
+            if(popItem.str > 0){
+                pStr.style.color = "#90CC54";
+                pStr.innerHTML = "+"+popItem.str;
+            }
+            else if(popItem.str <= 0){
+                pStr.style.color = "#E37171";
+                pStr.innerHTML = popItem.str;
+            }
+            /*********Интелект**********/
+            if(popItem.int > 0){
+                pInt.style.color = "#90CC54";
+                pInt.innerHTML = "+"+popItem.int;
+            }
+            else if(popItem.int <= 0){
+                pInt.style.color = "#E37171";
+                pInt.innerHTML = popItem.int;
+            }
+            /*********Ловкость**********/
+            if(popItem.agi > 0){
+                pAgi.style.color = "#90CC54";
+                pAgi.innerHTML = "+"+popItem.agi;
+            }
+            else if(popItem.agi <= 0){
+                pAgi.style.color = "#E37171";
+                pAgi.innerHTML = popItem.agi;
+            }
+            /*********Удача**********/
+            if(popItem.luck > 0){
+                pLuck.style.color = "#90CC54";
+                pLuck.innerHTML = "+"+popItem.luck;
+            }
+            else if(popItem.luck <= 0){
+                pLuck.style.color = "#E37171";
+                pLuck.innerHTML = popItem.luck;
+            }
+            pButton.innerHTML = "Снять";
+    }
+    closePopup(){
+        popup.style.visibility = "hidden";
+        switcher = 0;
     }
 }
 
@@ -436,7 +546,7 @@ let item3 = new EquipmnetItem ("Обоссанный меч","weapon");
     item3.setChars(7,1,-2,1);
     item3.setBImage("res/sword.png");
     item3.setRarity("Epic")
-let item4 = new EquipmnetItem ("♂Анец♂","weapon");
+let item4 = new EquipmnetItem ("Меч Анн Чоуса","weapon");
     item4.setChars(1000,-1000,1000,-1000);
     item4.setBImage("res/anec-sword.png");
     item4.setRarity("Legendary")
@@ -481,16 +591,58 @@ invCanvas.addEventListener("click",function(e){
             }
             switcher=0;
         } 
+        popButtonSwitch = 0;
         inv.setPopupInfo();
         inv.drawInv();
 })
 
+
+equipCanvas.addEventListener('click',function(e){
+    let rect = equipCanvas.getBoundingClientRect();
+        let x = e.clientX-rect.left,
+            y = e.clientY-rect.top;
+        let popX = e.pageX,
+            popY = e.pageY;
+        
+        equip.setActiveSlot(x,y)
+        
+       
+        if(switcher==0){
+            popup.style.left = popX+5+"px";
+            popup.style.top = popY+5+"px";
+            popup.style.visibility = "visible";
+            switcher=1;
+            bufSlot = equip.getActiveSlot();
+        }    
+        else {
+            if(bufSlot==equip.getActiveSlot()){
+                popup.style.visibility = "hidden";
+            }
+            else{
+                popup.style.left = popX+5+"px";
+                popup.style.top = popY+5+"px";
+                popup.style.visibility = "visible";
+            }
+            switcher=0;
+        }
+        popButtonSwitch = 1;
+        equip.setPopupInfo();
+        equip.equipDraw();
+})
 let equipItem = document.getElementsByClassName("equipB")[0];
 equipItem.addEventListener('click',function(){
-    equip.equipItem(inv.getActiveSlot().assignedItem);
-    inv.closePopup();
-    equip.equipDraw()
-    inv.drawInv();
+    if(popButtonSwitch==0){
+        equip.equipItem(inv.getActiveSlot().assignedItem);
+        inv.closePopup();
+        equip.equipDraw()
+        inv.drawInv();
+    }
+    else {
+        equip.unEquipItem(equip.getActiveSlot().assignedItem)
+        equip.closePopup();
+        equip.equipDraw()
+        inv.drawInv();
+    }
 })
 
 

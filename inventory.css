@@ -192,12 +192,28 @@ span {
 .popup-buttons{
     height: 45px;
     width: 100%;
+    display: flex;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    justify-content: space-around;
+    /* #E2CBA6 */
+
+    color: #E2CBA6;
 }
-.equipB{
-    width: 59px;
-    height: 22px;
-    background: orange;
+.popup-button{
+    width: 120px;
+    height: 25px;
+    background: #2A2D33;
+    border: 1px solid #EAC48B;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-top: 5px;
 }
+
 .item-img{
     width: 65px;
     height: 65px;
