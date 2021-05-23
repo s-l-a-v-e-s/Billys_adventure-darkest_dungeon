@@ -42,12 +42,21 @@
                             <div class="stamina"><span></span></div>
                         </div>
                     </div>
-                    <div class="characteristics"></div>
+                    <div class="characteristics">
+                        <h1></h1>
+                        <div class="playerStr"></div>
+                        <div class="playerInt"></div>
+                        <div class="playerAgi"></div>
+                        <div class="playerLuck"></div>
+                    </div>
                     <div class="effects"></div>
                     <div class="summary-info"></div>
                 </div>
                 <canvas id=equipment   width=407px height=687px></canvas>
             </div>
+
+
+
             <div class="inventory">
                 <canvas width=415px height=620px></canvas>
                 <div class="inventory-popup">
@@ -90,8 +99,11 @@
             context.drawImage(img,0,0,canvas.width,canvas.height);
         })
     </script>
+    <script src="player.js" type="module"></script>
+    <script src="inventory.js" type="module"></script>
+    <script src="main.js" type="module"></script>
     <script src="dialogueEvent.js"></script>
-    <script src="inventory.js"></script>
+    
     
 </body>
 </html>

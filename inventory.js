@@ -1,4 +1,7 @@
 'use strict';
+
+import player from './player.js';
+
 CanvasRenderingContext2D.prototype.drawRoundedImage = function(image, radius, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight){
 	var x = dx || sx;
 	var y = dy || sy;
@@ -43,7 +46,6 @@ CanvasRenderingContext2D.prototype.drawRoundedImage = function(image, radius, sx
 
 	this.restore();
 }
-
 let popButtonSwitch;
 let switcher = 0;
 let popup = document.getElementsByClassName("inventory-popup")[0];
@@ -69,7 +71,7 @@ class EquipmnetItem extends Item {
     int=0;
     agi=0;
     luck=0;
-    #itemStat;
+    #itemStat = 0;
     #rarity;
     constructor(name,equipmnetType){
         super(name)
@@ -84,7 +86,8 @@ class EquipmnetItem extends Item {
     setRarity(rarity){this.#rarity=rarity}
     getRarity(){return this.#rarity}
     getEqType(){return this.#eqType}
-    setItemAttack(stat){this.#itemStat = stat}
+    setItemStat(stat){ this.#itemStat = stat}
+    getItemStat(){return this.#itemStat}
     
 }
 class Slot{
@@ -210,6 +213,7 @@ class Inventory{
         let pIType = document.getElementsByClassName("item-type")[0].children[0];
         let imgItem = document.getElementsByClassName("item-info")[0].children[0];
         let atkORdfn = document.getElementsByClassName("attack-defence")[0].children[0];
+        let itemStat = document.getElementsByClassName("attack-defence")[0].children[1];
         let patkORdfn = document.getElementsByClassName("attack-defence")[0].children[2];
         let pStr = document.getElementsByClassName("str")[0];
         let pInt = document.getElementsByClassName("int")[0];
@@ -242,6 +246,7 @@ class Inventory{
         imgItem.style.backgroundImage = "url("+popItem.getBImage()+")";
         if(popItem.getEqType()=="weapon") {atkORdfn.src = "res/atk-icon.svg";patkORdfn.innerHTML="Атака"}
         else {atkORdfn.src ="res/def-icon.svg";patkORdfn.innerHTML="Защита"};
+        itemStat.innerHTML = popItem.getItemStat();
         /*********Сила**********/
         if(popItem.str > 0){
             pStr.style.color = "#90CC54";
@@ -305,7 +310,13 @@ class Equipment {
     slots=[this.#itemHead,this.#itemShoulder,this.#itemAmulet,this.#itemWeapon,this.#itemLeftHand,this.#itemChest,this.#itemLegs,this.#itemBoots]
     #activeSlot;
     equipItem(item){
-        let bufItem; 
+        player.updateStats();
+        let bufItem;
+        let stats = player.getSummaryStats();
+        if(stats[0]+item.str * 1.25 + 100 < 0 ||
+            stats[1]+item.int * 1.25 + 100 < 0 ||
+            stats[2]+item.agi * 1.25 + 100 < 0
+        ) return;
         switch (item.getEqType()){
             case 'head':
                 if(this.#itemHead!=null){
@@ -328,6 +339,7 @@ class Equipment {
                     this.#itemShoulder.assignedItem = item;
                     inv.getActiveSlot().assignedItem = null;
                 }
+                
                 break;
             case 'amulet':
                 if(this.#itemAmulet!=null){
@@ -339,7 +351,6 @@ class Equipment {
                     this.#itemAmulet.assignedItem = item;
                     inv.getActiveSlot().assignedItem = null;
                 }
-                
                 break;
             case 'weapon':
                 if(this.#itemWeapon!=null){
@@ -397,10 +408,26 @@ class Equipment {
                 }
                 break;
         }
+        this.equipDraw();
     }
     unEquipItem(item){
         inv.addItem(item);
         equip.#activeSlot.assignedItem = null;
+    }
+    getEquipmentStats(){
+        let sumStr = 0, sumInt = 0, sumAgi = 0, sumLuck = 0, sumAttack = 0, sumDeffense = 0;
+        this.slots.forEach(item => {
+            if(item.assignedItem!=null){
+                if(item.assignedItem.str!=null) sumStr += item.assignedItem.str;
+                if(item.assignedItem.int!=null) sumInt += item.assignedItem.int;
+                if(item.assignedItem.agi!=null) sumAgi += item.assignedItem.agi;
+                if(item.assignedItem.luck!=null) sumLuck += item.assignedItem.luck;
+                if(item.assignedItem.getEqType()=="weapon") sumAttack += item.assignedItem.getItemStat();
+                else sumDeffense += item.assignedItem.getItemStat();
+            }
+        })
+        let eqStats = [sumStr, sumInt, sumAgi, sumLuck, sumAttack, sumDeffense];
+        return eqStats;
     }
     setActiveSlot(x,y){
         
@@ -449,6 +476,7 @@ class Equipment {
             let pIType = document.getElementsByClassName("item-type")[0].children[0];
             let imgItem = document.getElementsByClassName("item-info")[0].children[0];
             let atkORdfn = document.getElementsByClassName("attack-defence")[0].children[0];
+            let itemStat = document.getElementsByClassName("attack-defence")[0].children[1];
             let patkORdfn = document.getElementsByClassName("attack-defence")[0].children[2];
             let pStr = document.getElementsByClassName("str")[0];
             let pInt = document.getElementsByClassName("int")[0];
@@ -475,8 +503,9 @@ class Equipment {
             pIName.innerHTML = popItem.name;
             pIType.innerHTML = popItem.getEqType();
             imgItem.style.backgroundImage = "url("+popItem.getBImage()+")";
-            if(popItem.getEqType()=="weapon") {atkORdfn.src = "res/atk-icon.svg";patkORdfn.innerHTML="Атака"}
+            if(popItem.getEqType()=="weapon") {atkORdfn.src = "res/atk-icon.svg";patkORdfn.innerHTML="Атака";}
             else {atkORdfn.src ="res/def-icon.svg";patkORdfn.innerHTML="Защита"};
+            itemStat.innerHTML = popItem.getItemStat();
             /*********Сила**********/
             if(popItem.str > 0){
                 pStr.style.color = "#90CC54";
@@ -522,7 +551,8 @@ class Equipment {
         switcher = 0;
     }
 }
-
+var equip = new Equipment;
+var inv = new Inventory;
 
 
 
@@ -569,11 +599,6 @@ let item8 = new EquipmnetItem("Кожаный щлемак","head");
     item8.setRarity('Uncommon');
     item8.setChars(2,2,2,2);
 
-
-
-
-let inv = new Inventory;
-let equip = new Equipment;
 document.onload = equip.firstInit();
 document.onload = equip.equipDraw();
 document.onload = inv.firstInit();
@@ -711,3 +736,5 @@ open1.addEventListener('click',function(){
     
 })
 
+
+export default equip;
