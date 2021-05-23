@@ -1,6 +1,4 @@
 'use strict'
-import equip from "./inventory.js";
-
 class Player {
     #name;
     #class;
@@ -14,9 +12,9 @@ class Player {
     #maxHealth;
     #maxMana;
     #maxStamina;
-    #equipStats=equip.getEquipmentStats();
+    #equipStats;
     /********Суммарные статы********/
-    #stats = [this.strength,this.intelligence,this.agility,this.luck];
+    #stats;
     constructor(strength,intelligence,agility,luck){
         this.#strength = strength || 0;
         this.#agility = agility || 0;
@@ -28,13 +26,14 @@ class Player {
         this.mana = this.#intelligence * 5 + 100;
         this.#maxStamina = this.#agility * 0.25 + 100;
         this.stamina = this.#agility * 5 + 100;
+        this.#stats = [this.strength,this.intelligence,this.agility,this.luck];
     }
 
 
     
     setName(pName){this.#name=pName}
     setClass(pClass){this.#class=pClass}
-    updateStats(){
+    updateStats(equip){
         this.#equipStats=equip.getEquipmentStats()
         this.#stats[0]= this.#strength + this.#equipStats[0];
         this.#stats[1]= this.#agility + this.#equipStats[1];
@@ -66,8 +65,6 @@ class Player {
     }
     attack(){}
 }
-
-
 let player = new Player(
     sessionStorage.getItem("str"),
     sessionStorage.getItem("int"),
@@ -77,21 +74,5 @@ let player = new Player(
 player.setName(sessionStorage.getItem("name"));
 
 
-
-
-document.body.onclick = function() {
-    player.getDmg(40)
-}
-
-
-
-let popup = document.getElementsByClassName("inventory-popup")[0];
-popup.addEventListener("click",function(){
-    player.updateStats();
-    player.updateState();
-    console.log(player)
-   
-    
-})
 
 export default player;
