@@ -301,19 +301,21 @@ span {
     font-style: normal;
     font-weight: bold;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 28px;
 }
 .bar p{
-    width: 61.99px;
+    width: auto;
     height: 28px;
-    margin-left: 35px;
+    margin-left:auto;
     font-family: El Messiri;
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 28px;
     text-align: right;
+    color: #E2CBA6;
+    overflow: auto;
 }
 span{
     border-radius: 3px;
@@ -349,4 +351,149 @@ span{
 .stamina h1{
     color: #90CC54;
 
+}
+.characteristics{
+    width: 200px;
+    height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+}
+.characteristics h1{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #FFC977;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.characteristics h2{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    width: 88px;
+
+    /* #E2CBA6 */
+
+    color: #E2CBA6;
+
+}
+.characteristics div {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.characteristics p{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 18px */
+    text-align: right;
+    color: #E2CBA6;
+}
+.effects {
+    width: 182px;
+    height: 102px;
+    margin: auto;
+    margin-top: 29px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center
+}
+.effects .header{
+    display: flex;
+    flex-wrap: wrap;
+    width: 176px;
+    height: 38px;
+    justify-content: space-around;
+}
+.header h1{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFC977;
+}
+.positive,.negative{
+    width: 63px;
+    height: 42px;
+    background-color: #E2CBA6;
+}
+.summary-info{
+    width: 182px;
+    height: 42px;
+    margin: auto;
+    margin-top: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.summary-info h1{
+    width: 160px;
+    height: 38px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFC977;
+}
+.playerAttack,.playerDeffense{
+    display: flex;
+    width: 185px;
+    height: 28px;
+    margin-top: 8px;
+    
+}
+.playerAttack p,.playerDeffense p{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    margin-left: 10px;
+    color: #978972;
+
+    text-shadow: 0px 2.57297px 2.57297px rgba(0, 0, 0, 0.25);
+}
+.summary-info h2{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    margin: auto;
+    height: auto;
+    color: #53504C;
+
+    text-shadow: 0px 2.57297px 2.57297px rgba(0, 0, 0, 0.25);
+}
+.playerAttack img{
+    width: 17px;
+    height: 17px;
+    margin: auto;
+    margin-left: 8px;
+}
+.playerDeffense img{
+    margin: auto;
+    
+    width: 25px;
+    height: 25px;
 }

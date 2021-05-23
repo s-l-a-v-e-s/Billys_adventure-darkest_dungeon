@@ -14,11 +14,11 @@ export class Equipment {
     slots=[this.#itemHead,this.#itemShoulder,this.#itemAmulet,this.#itemWeapon,this.#itemLeftHand,this.#itemChest,this.#itemLegs,this.#itemBoots]
     #activeSlot;
     equipItem(item,inv,equip){
+        if(player.inBattle()) return;
         if(item == null) return;
         player.updateStats(equip);
         let stats = player.getSummaryStats();
         if(stats[0]+item.str * 1.25 + 100 <= 0 ||
-            stats[1]+item.int * 1.25 + 100 <= 0 ||
             stats[2]+item.agi * 1.25 + 100 <= 0
         ) return;
         let bufItem;
@@ -119,9 +119,10 @@ export class Equipment {
         this.equipDraw();
     }
     unEquipItem(item,inv,equip){
+        if(player.inBattle()) return;
         inv.addItem(item);
+        player.whenUnEquip(item);
         equip.#activeSlot.assignedItem = null;
-        player.updateState();
     }
     getEquipmentStats(){
         let sumStr = 0, sumInt = 0, sumAgi = 0, sumLuck = 0, sumAttack = 0, sumDeffense = 0;
@@ -172,6 +173,7 @@ export class Equipment {
         this.#itemWeapon.draw(14,288,null,this.#equipCanvas);
         this.#itemLeftHand.draw(307,288,null,this.#equipCanvas);
         this.#itemBoots.draw(241,574,null,this.#equipCanvas);
+        this.#itemAmulet.draw(175,116,null,this.#equipCanvas,38,38)
 
     }
     getActiveSlot(){return this.#activeSlot}

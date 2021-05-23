@@ -143,6 +143,8 @@ equipCanvas.addEventListener('click',function(e){
 })
 equipCanvas.addEventListener("dblclick",function(){
     equip.unEquipItem(equip.getActiveSlot().assignedItem,inv)
+    player.updateStats(equip);
+    player.updateState();
     equip.closePopup();
     equip.equipDraw()
     inv.drawInv();
@@ -162,6 +164,8 @@ equipItem.addEventListener('click',function(){
     }
     else {
         equip.unEquipItem(equip.getActiveSlot().assignedItem,inv,equip,equip)
+        player.updateStats(equip);
+        player.updateState();
         equip.closePopup();
         equip.equipDraw()
         inv.drawInv();

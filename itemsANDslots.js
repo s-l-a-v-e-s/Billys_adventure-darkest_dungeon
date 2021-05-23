@@ -88,7 +88,9 @@ export class EquipmnetItem extends Item {
     bImage="res/slot.svg";
     posX;
     posY;
-    draw(posX,posY,active,canvas){
+    draw(posX,posY,active,canvas,w,h){
+        w = typeof w !== 'undefined' ? w:65;
+        h = typeof h !== 'undefined' ? h:65;
         let bool = false
         let context = canvas.getContext('2d');
         let img = new Image();
@@ -100,9 +102,9 @@ export class EquipmnetItem extends Item {
         this.posX = posX;
         this.posY = posY;
         img.onload = function(){
-            context.clearRect(posX,posY,65,65);
-            if(bool) context.drawRoundedImage(img,10,posX,posY,65,65);
-            else context.drawRoundedImage(img,7,posX,posY,65,65);
+            context.clearRect(posX,posY,w,h);
+            if(bool) context.drawRoundedImage(img,10,posX,posY,w,h);
+            else context.drawRoundedImage(img,7,posX,posY,w,h);
             if(active) {
                 img.src = "res/active-border.svg";
                 img.onload = function(){

@@ -26,6 +26,7 @@
         <div class="inventory-screen">
             <div class="close-button"></div>
             <div class="character">
+                <div class="playerName"></div>
                 <div class="character-info">
                     <div class="state">
                         <h1>Состояние</h1>
@@ -43,14 +44,36 @@
                         </div>
                     </div>
                     <div class="characteristics">
-                        <h1></h1>
-                        <div class="playerStr"></div>
-                        <div class="playerInt"></div>
-                        <div class="playerAgi"></div>
-                        <div class="playerLuck"></div>
+                        <h1>Характеристики</h1>
+                        <div class="playerStr">
+                            <h2>Сила</h2><p>0</p>
+                        </div>
+                        <div class="playerInt">
+                            <h2>Интелект</h2><p>0</p>
+                        </div>
+                        <div class="playerAgi">
+                            <h2>Ловкость</h2><p>0</p>
+                        </div>
+                        <div class="playerLuck">
+                            <h2>Удача</h2><p>0</p>
+                        </div>
                     </div>
-                    <div class="effects"></div>
-                    <div class="summary-info"></div>
+                    <div class="effects">
+                        <div class="header">
+                            <img src="res/smile+.svg" alt="">
+                            <h1>Эффекты</h1>
+                            <img src="res/smile-.svg" alt="">
+                        </div>
+                        <div class="positive"></div>
+                        <div class="negative"></div>
+                    </div>
+                    <div class="summary-info">
+                        <h1>Урон и защита</h1>
+                        <div class="playerAttack">
+                            <img src="res/atk-icon.svg" alt=""><p>100</p><h2>Единиц за удар</h2></div>
+                        <div class="playerDeffense">
+                            <img src="res/def-icon.svg" alt=""><p>100</p><h2>Физическая броня</h2></div>
+                    </div>
                 </div>
                 <canvas id=equipment   width=407px height=687px></canvas>
             </div>
@@ -65,7 +88,7 @@
                     <div class="item-info">
                         <div class="item-img"></div>
                         <div class="attack-defence">
-                            <img src="res/def-icon.svg"><h1>15</h1>
+                            <img src="res/def-icon.svg" ><h1>15</h1>
                             <p>Защита</p>
                         </div>
                     </div>
