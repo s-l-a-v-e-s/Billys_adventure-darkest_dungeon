@@ -1,8 +1,8 @@
 'use strict'
-import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots'
-import {Inventory} from './Inventory';
-import {Equipment} from './Equipment';
-import player from './player';
+import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
+import {Inventory} from './Inventory.js';
+import {Equipment} from './Equipment.js';
+import player from './player.js';
 let equip = new Equipment;
 let inv = new Inventory;
 

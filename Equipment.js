@@ -1,6 +1,6 @@
 'use srict'
-import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots'
-import player from './player';
+import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
+import player from './player.js';
 export class Equipment {
     #equipCanvas = document.getElementById("equipment");
     #itemHead = new EquipmentSlot;
