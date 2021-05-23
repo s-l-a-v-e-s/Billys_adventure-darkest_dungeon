@@ -3,18 +3,8 @@ import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js
 import {Inventory} from './Inventory.js';
 import {Equipment} from './Equipment.js';
 import player from './player.js';
-
-
-document.body.onclick = function() {
-    player.getDmg(40)
-}
-
-
-
 let equip = new Equipment;
 let inv = new Inventory;
-
-
 
 let popButtonSwitch;
 let switcher = 0;
@@ -44,6 +34,8 @@ let item5 = new EquipmnetItem("Кожаный наргудник","chest")
     item5.setChars(2,1,4,0);
     item5.setBImage("res/leather-chest.png");
     item5.setRarity('Common')
+    item5.setItemStat(10)
+
 let item6 = new EquipmnetItem("Кожаный щлемак","head");
     item6.setBImage("res/leather-helmet.png");
     item6.setRarity('Uncommon');
@@ -108,9 +100,6 @@ invCanvas.addEventListener('dblclick',function(){
     equip.equipDraw()
     inv.drawInv();
 })
-       
-
-
 
 equipCanvas.addEventListener('click',function(e){
     let bufSlot;
@@ -160,9 +149,8 @@ equipCanvas.addEventListener("dblclick",function(){
 })
 
 popup.addEventListener("click",function(){
-    player.updateStats(equip);
-    player.updateState(equip);
-    console.log(player)
+    player.updateState();
+
 })
 
 equipItem.addEventListener('click',function(){
@@ -179,10 +167,4 @@ equipItem.addEventListener('click',function(){
         inv.drawInv();
     }
 })
-
-
-document.body.onclick = function(){
-    let manaBar = document.getElementsByClassName("mana")[0].children[0];
-    manaBar.style.width = "40%";
-}
 

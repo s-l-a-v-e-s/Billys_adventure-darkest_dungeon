@@ -14,15 +14,14 @@ export class Equipment {
     slots=[this.#itemHead,this.#itemShoulder,this.#itemAmulet,this.#itemWeapon,this.#itemLeftHand,this.#itemChest,this.#itemLegs,this.#itemBoots]
     #activeSlot;
     equipItem(item,inv,equip){
-        let bufItem;
-        let stats = player.getSummaryStats();
-        player.updateStats(equip)
-        console.log(stats)
         if(item == null) return;
-        if(stats[0]+item.str * 1.25 + 100 < 0 ||
-            stats[1]+item.int * 1.25 + 100 < 0 ||
-            stats[2]+item.agi * 1.25 + 100 < 0
+        player.updateStats(equip);
+        let stats = player.getSummaryStats();
+        if(stats[0]+item.str * 1.25 + 100 <= 0 ||
+            stats[1]+item.int * 1.25 + 100 <= 0 ||
+            stats[2]+item.agi * 1.25 + 100 <= 0
         ) return;
+        let bufItem;
         switch (item.getEqType()){
             case 'head':
                 if(this.#itemHead!=null){
@@ -114,14 +113,19 @@ export class Equipment {
                 }
                 break;
         }
+        player.updateStats(equip);
+        player.updateState();
+        console.log(player)
         this.equipDraw();
     }
     unEquipItem(item,inv,equip){
         inv.addItem(item);
         equip.#activeSlot.assignedItem = null;
+        player.updateState();
     }
     getEquipmentStats(){
         let sumStr = 0, sumInt = 0, sumAgi = 0, sumLuck = 0, sumAttack = 0, sumDeffense = 0;
+        let eqStats;
         this.slots.forEach(item => {
             if(item.assignedItem!=null){
                 if(item.assignedItem.str!=null) sumStr += item.assignedItem.str;
@@ -131,8 +135,9 @@ export class Equipment {
                 if(item.assignedItem.getEqType()=="weapon") sumAttack += item.assignedItem.getItemStat();
                 else sumDeffense += item.assignedItem.getItemStat();
             }
+            
         })
-        let eqStats = [sumStr, sumInt, sumAgi, sumLuck, sumAttack, sumDeffense];
+        eqStats=[sumStr,sumInt,sumAgi,sumLuck,sumAttack,sumDeffense]
         return eqStats;
     }
     setActiveSlot(x,y){ 
