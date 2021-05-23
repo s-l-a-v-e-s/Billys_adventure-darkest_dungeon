@@ -1,5 +1,5 @@
 'use srict'
-import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
+import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots'
 
 export class Inventory{
     #invCanvas =  document.getElementsByClassName("inventory")[0].children[0];
