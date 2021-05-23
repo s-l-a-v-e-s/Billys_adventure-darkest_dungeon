@@ -89,8 +89,8 @@ class EquipmnetItem extends Item {
 }
 class Slot{
     assignedItem;
-    dWidth=70;
-    dHeight=70;
+    dWidth=65;
+    dHeight=65;
     bImage="res/slot.svg";
     posX;
     posY;
@@ -106,9 +106,9 @@ class Slot{
         this.posX = posX;
         this.posY = posY;
         img.onload = function(){
-            context.clearRect(posX,posY,66,66);
+            context.clearRect(posX,posY,65,65);
             if(bool) context.drawRoundedImage(img,10,posX,posY,65,65);
-            else context.drawImage(img,posX,posY,65,65);
+            else context.drawRoundedImage(img,7,posX,posY,65,65);
             if(active) {
                 img.src = "res/active-border.svg";
                 img.onload = function(){
@@ -403,7 +403,9 @@ class Equipment {
         equip.#activeSlot.assignedItem = null;
     }
     setActiveSlot(x,y){
+        
         this.slots.forEach(element => {
+            
         if( x >= element.posX && x <= element.posX  + element.dWidth &&
             y >= element.posY && y <= element.posY  + element.dHeight){
             if(this.#activeSlot){
@@ -416,7 +418,6 @@ class Equipment {
                 }
                 this.#activeSlot.isActiveSlot = !element.isActiveSlot;
             }
-        else return false;
         })       
     }
     firstInit(){
@@ -555,6 +556,19 @@ let item5 = new EquipmnetItem("Кожаный наргудник","chest")
     item5.setChars(2,1,4,0);
     item5.setBImage("res/leather-chest.png");
     item5.setRarity('Common')
+let item6 = new EquipmnetItem("Кожаный щлемак","head");
+    item6.setBImage("res/leather-helmet.png");
+    item6.setRarity('Uncommon');
+    item6.setChars(2,2,2,2);
+let item7 = new EquipmnetItem("Кожаный щлемак","head");
+    item7.setBImage("res/leather-helmet2.png");
+    item7.setRarity('Uncommon');
+    item7.setChars(2,2,2,2);
+let item8 = new EquipmnetItem("Кожаный щлемак","head");
+    item8.setBImage("res/leather-helmet3.png");
+    item8.setRarity('Uncommon');
+    item8.setChars(2,2,2,2);
+
 
 
 
@@ -568,6 +582,9 @@ inv.addItem(item2)
 inv.addItem(item3)
 inv.addItem(item4)
 inv.addItem(item5)
+inv.addItem(item6)
+inv.addItem(item7)
+inv.addItem(item8)
 document.onload = inv.drawInv();
 let bufSlot;
 /**************Выбор предмета*********************/
@@ -577,6 +594,7 @@ invCanvas.addEventListener("click",function(e){
             y = e.clientY-rect.top;
         let popX = e.pageX,
             popY = e.pageY;
+        if(popX>=1300) popX=1200;
         inv.setActiveSlot(x,y)
         if(switcher==0){
             popup.style.left = popX+5+"px";
@@ -618,6 +636,8 @@ equipCanvas.addEventListener('click',function(e){
             popY = e.pageY;
         
         equip.setActiveSlot(x,y);
+    if (x >=  equip.getActiveSlot().posX && x <= equip.getActiveSlot().posX  + equip.getActiveSlot().dWidth &&
+         y >= equip.getActiveSlot().posY && y <= equip.getActiveSlot().posY  + equip.getActiveSlot().dHeight){
             if(switcher==0){
                 popup.style.left = popX+5+"px";
                 popup.style.top = popY+5+"px";
@@ -637,9 +657,15 @@ equipCanvas.addEventListener('click',function(e){
                 switcher=0;
             }
         
-        popButtonSwitch = 1;
-        equip.setPopupInfo();
-        equip.equipDraw();
+            
+    }
+    else {
+        switcher = 0
+        popup.style.visibility = "hidden";
+    }
+    popButtonSwitch = 1;
+    equip.setPopupInfo();
+    equip.equipDraw(); 
 })
 equipCanvas.addEventListener("dblclick",function(){
     equip.unEquipItem(equip.getActiveSlot().assignedItem)
