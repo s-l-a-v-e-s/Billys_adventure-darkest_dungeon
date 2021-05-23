@@ -3,14 +3,15 @@
     padding: 0%;
 }
 .inventory-shadow{
-    width: 100%;
+    width:100%;
     height: 100%;
     position: absolute;
     background-image: url(res/body-background.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-   
+    margin: auto;
+    
 }
 .inventory-screen{
     display: flex;
@@ -23,6 +24,7 @@
     width: 50px;
     height: 50px;
     background: red;
+    display: none;
 }
 .character {
     width: 688px;
@@ -53,15 +55,6 @@
     margin-left: 9px;
    
 }
-
-
-
-
-
-
-
-
-
 
 .inventory {
     width: 491px;
@@ -260,4 +253,100 @@ span {
     font-size: 16px;
     line-height: 25px;
     color: #423D34;
+}
+
+
+
+
+
+.state{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+.state h1{
+    width: 100%;
+    height: 38px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #FFC977;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.bar{
+    width: 191.82px;
+    height: 36px;
+    display:  flex;
+    flex-wrap: wrap;
+
+}
+.bar div{
+    width: 189.48px;
+    height: 7px;
+    background: black;
+    border-radius: 3px;
+  
+}
+.bar h1{
+    width: 92.4px;
+    height: 28px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    font-size: 16px;
+    line-height: 28px;
+}
+.bar p{
+    width: 61.99px;
+    height: 28px;
+    margin-left: 35px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: right;
+}
+span{
+    border-radius: 3px;
+}
+.hp span{
+    display: block;
+    height: 7px;
+    background: #D46B6B;
+    transition: all 0.4s linear;
+    box-shadow: 0px 0px 12px 6px rgba(212, 107, 107, 0.2);
+}
+.hp h1{
+    color: #D46B6B;
+}
+
+.mana span{
+    display: block;
+    height: 7px;
+    background: #7694FF;
+    transition: all 0.7s ease;
+    box-shadow: 0px 0px 12px 6px rgba(118, 148, 255, 0.2);
+}
+.mana h1{
+    color: #7694FF;
+}
+.stamina span{
+    display: block;
+    height: 7px;
+    background: #90CC54;
+    transition: all 0.4s linear;
+    box-shadow: 0px 0px 12px 6px rgba(144, 204, 84, 0.2);
+}
+.stamina h1{
+    color: #90CC54;
+
 }

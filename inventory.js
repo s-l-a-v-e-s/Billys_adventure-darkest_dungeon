@@ -69,6 +69,7 @@ class EquipmnetItem extends Item {
     int=0;
     agi=0;
     luck=0;
+    #itemStat;
     #rarity;
     constructor(name,equipmnetType){
         super(name)
@@ -83,7 +84,7 @@ class EquipmnetItem extends Item {
     setRarity(rarity){this.#rarity=rarity}
     getRarity(){return this.#rarity}
     getEqType(){return this.#eqType}
-  
+    setItemAttack(stat){this.#itemStat = stat}
     
 }
 class Slot{
@@ -124,6 +125,11 @@ class Slot{
 
 
 class InventorySlot extends Slot {
+    isActiveSlot=false;
+    setActive(){this.activeSlot=true}
+    isActive(){return this.isActiveSlot}
+}
+class EquipmentSlot extends Slot{
     isActiveSlot=false;
     setActive(){this.activeSlot=true}
     isActive(){return this.isActiveSlot}
@@ -288,14 +294,14 @@ class Inventory{
 }
 
 class Equipment {
-    #itemHead = new Slot();
-    #itemShoulder = new Slot;
-    #itemAmulet  = new Slot;
-    #itemWeapon  = new Slot;
-    #itemLeftHand  = new Slot;
-    #itemChest  = new Slot;
-    #itemLegs  = new Slot;
-    #itemBoots  = new Slot;
+    #itemHead = new EquipmentSlot;
+    #itemShoulder = new EquipmentSlot;
+    #itemAmulet  = new EquipmentSlot;
+    #itemWeapon  = new EquipmentSlot;
+    #itemLeftHand  = new EquipmentSlot;
+    #itemChest  = new EquipmentSlot;
+    #itemLegs  = new EquipmentSlot;
+    #itemBoots  = new EquipmentSlot;
     slots=[this.#itemHead,this.#itemShoulder,this.#itemAmulet,this.#itemWeapon,this.#itemLeftHand,this.#itemChest,this.#itemLegs,this.#itemBoots]
     #activeSlot;
     equipItem(item){
@@ -398,21 +404,20 @@ class Equipment {
     }
     setActiveSlot(x,y){
         this.slots.forEach(element => {
-            if( x >= element.posX && x <= element.posX  + element.dWidth &&
-                y >= element.posY && y <= element.posY  + element.dHeight){
-                    console.log(element)
-                       if(this.#activeSlot){
-                               this.#activeSlot.isActiveSlot = false;
-                               this.#activeSlot = element;
-                           }
-                           else{ 
-                               this.#activeSlot = element;
-                           }
-                           this.#activeSlot.isActiveSlot = !element.isActiveSlot;
-                           
-                       }    
+        if( x >= element.posX && x <= element.posX  + element.dWidth &&
+            y >= element.posY && y <= element.posY  + element.dHeight){
+            if(this.#activeSlot){
+                    this.#activeSlot.isActiveSlot = false;
+                    this.#activeSlot = element;
+                }
+                else{
+                    this.#activeSlot = element;
                     
-            })       
+                }
+                this.#activeSlot.isActiveSlot = !element.isActiveSlot;
+            }
+        else return false;
+        })       
     }
     firstInit(){
         let ctx = equipCanvas.getContext("2d");
@@ -434,12 +439,11 @@ class Equipment {
     }
     getActiveSlot(){return this.#activeSlot}
     setPopupInfo(){
-        if(this.#activeSlot.assignedItem==null) {
-            popup.style.visibility = "hidden";
-            
-        }
+            if(this.#activeSlot==null||this.#activeSlot.assignedItem==null) {
+                popup.style.visibility = "hidden";
+                return;
+            };
             let popItem = this.#activeSlot.assignedItem;
-            if(popItem == null) return;
             let pIName = document.getElementsByClassName("item-name")[0].children[0];
             let pIType = document.getElementsByClassName("item-type")[0].children[0];
             let imgItem = document.getElementsByClassName("item-info")[0].children[0];
@@ -450,10 +454,6 @@ class Equipment {
             let pAgi = document.getElementsByClassName("agi")[0];
             let pLuck = document.getElementsByClassName("luck")[0];
             let pButton = document.getElementsByClassName("equipB")[0].children[0];
-            if(popItem==null){
-                popup.style.visibility = "hidden";
-            }
-            else{
                 switch(popItem.getRarity()){
                     case "Common":
                         popup.style.backgroundImage = "url(res/item-rarity-common.svg)";
@@ -471,7 +471,6 @@ class Equipment {
                         popup.style.backgroundImage = "url(res/item-rarity-legendary.svg)";
                         break;
                 }
-            }
             pIName.innerHTML = popItem.name;
             pIType.innerHTML = popItem.getEqType();
             imgItem.style.backgroundImage = "url("+popItem.getBImage()+")";
@@ -514,6 +513,8 @@ class Equipment {
                 pLuck.innerHTML = popItem.luck;
             }
             pButton.innerHTML = "Снять";
+        
+            
     }
     closePopup(){
         popup.style.visibility = "hidden";
@@ -550,7 +551,10 @@ let item4 = new EquipmnetItem ("Меч Анн Чоуса","weapon");
     item4.setChars(1000,-1000,1000,-1000);
     item4.setBImage("res/anec-sword.png");
     item4.setRarity("Legendary")
-    
+let item5 = new EquipmnetItem("Кожаный наргудник","chest")
+    item5.setChars(2,1,4,0);
+    item5.setBImage("res/leather-chest.png");
+    item5.setRarity('Common')
 
 
 
@@ -563,6 +567,7 @@ inv.addItem(item1)
 inv.addItem(item2)
 inv.addItem(item3)
 inv.addItem(item4)
+inv.addItem(item5)
 document.onload = inv.drawInv();
 let bufSlot;
 /**************Выбор предмета*********************/
@@ -612,27 +617,26 @@ equipCanvas.addEventListener('click',function(e){
         let popX = e.pageX,
             popY = e.pageY;
         
-        equip.setActiveSlot(x,y)
-        
-       
-        if(switcher==0){
-            popup.style.left = popX+5+"px";
-            popup.style.top = popY+5+"px";
-            popup.style.visibility = "visible";
-            switcher=1;
-            bufSlot = equip.getActiveSlot();
-        }    
-        else {
-            if(bufSlot==equip.getActiveSlot()){
-                popup.style.visibility = "hidden";
-            }
-            else{
+        equip.setActiveSlot(x,y);
+            if(switcher==0){
                 popup.style.left = popX+5+"px";
                 popup.style.top = popY+5+"px";
                 popup.style.visibility = "visible";
+                switcher=1;
+                bufSlot = equip.getActiveSlot();
+            }    
+            else {
+                if(bufSlot==equip.getActiveSlot()){
+                    popup.style.visibility = "hidden";
+                }
+                else{
+                    popup.style.left = popX+5+"px";
+                    popup.style.top = popY+5+"px";
+                    popup.style.visibility = "visible";
+                }
+                switcher=0;
             }
-            switcher=0;
-        }
+        
         popButtonSwitch = 1;
         equip.setPopupInfo();
         equip.equipDraw();
@@ -662,7 +666,10 @@ equipItem.addEventListener('click',function(){
 })
 
 
-
+document.body.onclick = function(){
+    let manaBar = document.getElementsByClassName("mana")[0].children[0];
+    manaBar.style.width = "40%";
+}
 
 
 
