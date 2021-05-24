@@ -24,7 +24,6 @@
     </div>
     <div class="inventory-shadow">
         <div class="inventory-screen">
-            <div class="close-button"></div>
             <div class="character">
                 <div class="playerName"></div>
                 <div class="character-info">
@@ -70,9 +69,9 @@
                     <div class="summary-info">
                         <h1>Урон и защита</h1>
                         <div class="playerAttack">
-                            <img src="res/atk-icon.svg" alt=""><p>100</p><h2>Единиц за удар</h2></div>
+                            <img src="res/atk-icon.svg" alt=""><p>5</p><h2>Единиц за удар</h2></div>
                         <div class="playerDeffense">
-                            <img src="res/def-icon.svg" alt=""><p>100</p><h2>Физическая броня</h2></div>
+                            <img src="res/def-icon.svg" alt=""><p>0</p><h2>Физическая броня</h2></div>
                     </div>
                 </div>
                 <canvas id=equipment   width=407px height=687px></canvas>
@@ -105,6 +104,7 @@
                     </div>
                 </div>
             </div>
+            <div class="close-button"></div>
         </div>
     </div>
 
@@ -122,11 +122,11 @@
             context.drawImage(img,0,0,canvas.width,canvas.height);
         })
     </script>
-    <script  type="module" src="player.js"></script>
-    <script type="module"src="itemsANDslots.js" ></script>
-    <script type="module" src="Inventory.js" ></script>
-    <script type="module" src="Equipment.js" ></script>
-    <script type="module" src="main.js" ></script>
+    <script src="player.js" type="module"></script>
+    <script src="itemsANDslots.js" type="module"></script>
+    <script src="Inventory.js" type="module"></script>
+    <script src="Equipment.js" type="module"></script>
+    <script src="main.js" type="module"></script>
     <script src="dialogueEvent.js"></script>
     
     

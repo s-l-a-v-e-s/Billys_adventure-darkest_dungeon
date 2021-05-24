@@ -1,4 +1,5 @@
-'use strict'
+'use srict'
+require = require('esm')(module)
 import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
 
 export class Inventory{

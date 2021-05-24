@@ -1,4 +1,5 @@
 'use strict'
+require = require('esm')(module)
 class Player {
     #name;
     #class;
@@ -73,6 +74,8 @@ class Player {
         let intText = document.getElementsByClassName("playerInt")[0].children[1];
         let agiText = document.getElementsByClassName("playerAgi")[0].children[1];
         let luckText = document.getElementsByClassName("playerLuck")[0].children[1];
+        let playerAttackText = document.getElementsByClassName("playerAttack")[0].children[1];
+        let playerDeffenseText = document.getElementsByClassName("playerDeffense")[0].children[1];
         if (this.#inBattle) return;
         else {
             this.health = this.#maxHealth;
@@ -83,6 +86,8 @@ class Player {
         intText.innerHTML = this.#stats[1];
         agiText.innerHTML = this.#stats[2];
         luckText.innerHTML = this.#stats[3];
+        playerAttackText.innerHTML = this.#sumAttack ;
+        playerDeffenseText.innerHTML = this.#sumArmor = this.#stats[5];
         hpText.innerHTML = this.health +" / "+this.#maxHealth;
         manaText.innerHTML = this.mana +" / "+this.#maxMana;
         staminaText.innerHTML = this.stamina +" / "+this.#maxStamina;

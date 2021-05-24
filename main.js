@@ -1,4 +1,5 @@
 'use strict'
+require = require('esm')(module)
 import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
 import {Inventory} from './Inventory.js';
 import {Equipment} from './Equipment.js';
@@ -30,6 +31,7 @@ let item4 = new EquipmnetItem ("Меч Анн Чоуса","weapon");
     item4.setChars(1000,-1000,1000,-1000);
     item4.setBImage("res/anec-sword.png");
     item4.setRarity("Legendary")
+    item4.setItemStat(10)
 let item5 = new EquipmnetItem("Кожаный наргудник","chest")
     item5.setChars(2,1,4,0);
     item5.setBImage("res/leather-chest.png");

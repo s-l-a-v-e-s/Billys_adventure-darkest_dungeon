@@ -1,4 +1,5 @@
 'use strict'
+require = require('esm')(module)
 CanvasRenderingContext2D.prototype.drawRoundedImage = function(image, radius, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight){
 	var x = dx || sx;
 	var y = dy || sy;

@@ -1,4 +1,5 @@
 'use srict'
+require = require('esm')(module)
 import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
 import player from './player.js';
 export class Equipment {
