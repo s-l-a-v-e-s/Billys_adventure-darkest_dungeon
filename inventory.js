@@ -1,4 +1,4 @@
-'use srict'
+
 import {Item,EquipmnetItem,InventorySlot,EquipmentSlot} from './itemsANDslots.js'
 
 export class Inventory{
