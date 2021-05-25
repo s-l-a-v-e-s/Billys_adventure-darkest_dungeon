@@ -3,9 +3,10 @@
     padding: 0%;
 }
 body{
-    width: 1920px;
     overflow: hidden;
     display: flex;
+    justify-content: center;
+    justify-items: center;
     user-select: none; 
 }
 .game{
@@ -23,7 +24,7 @@ body{
     flex-wrap: wrap;
     margin: auto;
     margin-bottom: 41px;
-    margin-top: 63px;
+    margin-top: 10px;
 }
 .main-panel canvas{
     width: 100%;

@@ -29,11 +29,30 @@
     background-repeat: no-repeat;
     background-position: center;
     margin: auto;
+    display: flex;
+}
+.closeB{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    width: 99px;
+    background: #2A2D33;
+    border: 1px solid #EAC48B;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #E2CBA6;
+    height: 25px;
+    margin: auto;
+    margin-top: 10;
 }
 .character {
     width: 688px;
     height: 829px;
     margin: auto;
+    margin-right: 10px;
     background-image: url(res/character-background.svg);
     display: flex;
 }
@@ -64,7 +83,7 @@
     width: 491px;
     height: 830px;
     margin: auto;
-    margin-left: 22px;
+    margin-left: 0%;
     background-image: url(res/inv-bg.svg);
     background-size: cover;
     display: flex;
@@ -135,6 +154,7 @@
 .item-info{
     width: 196px;
     height: 133px;
+    margin: auto;
     display: flex;
 }
 .item-chars{
@@ -212,8 +232,8 @@ span {
 }
 
 .item-img{
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     background: rebeccapurple;
     margin-top: 33px;
     margin-left: auto;

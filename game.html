@@ -82,8 +82,8 @@
             <div class="inventory">
                 <canvas width=415px height=620px></canvas>
                 <div class="inventory-popup">
-                    <div class="item-name"><p>Обоссаный щит</p></div>
-                    <div class="item-type"><p>Щит</p></div>
+                    <div class="item-name"><p></p></div>
+                    <div class="item-type"><p></p></div>
                     <div class="item-info">
                         <div class="item-img"></div>
                         <div class="attack-defence">
@@ -104,7 +104,9 @@
                     </div>
                 </div>
             </div>
-            <div class="close-button"></div>
+            <div class="close-button">
+                <div class="closeB"><p>Вернутся</p></div>
+            </div>
         </div>
     </div>
 
@@ -122,8 +124,16 @@
             context.drawImage(img,0,0,canvas.width,canvas.height);
         })
     </script>
-    <script src="dist/main.js"></script>
-
+    <script src="player.js" type="module"></script>
+    <script src="itemsANDslots.js" type="module"></script>
+    <script src="Inventory.js" type="module"></script>
+    <script src="Equipment.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+    <script src="dialogueEvent.js"></script>
+    <script src="Enemy.js" type="module"></script>
+    <script src="generators.js" type="module"></script>
+    <script type="text/javascript" src="example.js"></script>
+    
     
 </body>
 </html>
