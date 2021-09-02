@@ -147,7 +147,10 @@ for (let i = 0; i<11;i++){
 
 
 }
+for(let i = 0; i < 15; i++){
 let newItem = gener.generateItem(enemy);
 if(newItem != "nothing") inv.addItem(newItem)
+}
+
 document.onload = equip.equipDraw();
 document.onload = inv.drawInv();
