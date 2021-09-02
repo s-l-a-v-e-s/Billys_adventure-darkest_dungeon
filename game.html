@@ -10,8 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="game"><div class="main-panel">
-        <div class="main-panel-header"></div>
+    <div class="game">
+        <div class="open-button"></div>
+        <div class="main-panel">
         <canvas></canvas>
     </div>
     <div class="event-screen">
@@ -23,16 +24,70 @@
     </div>
     <div class="inventory-shadow">
         <div class="inventory-screen">
-            <div class="character"></div>
+            <div class="character">
+                <div class="playerName"></div>
+                <div class="character-info">
+                    <div class="state">
+                        <h1>Состояние</h1>
+                        <div class="bar">
+                            <h1>Здоровье</h1><p>100/100</p>
+                            <div class="hp"><span></span></div>
+                        </div>
+                        <div class="bar">
+                            <h1>Мана</h1><p>100/100</p>
+                            <div class="mana"><span></span></div>
+                        </div>
+                        <div class="bar">
+                            <h1>Выносливость</h1><p>100/100</p>
+                            <div class="stamina"><span></span></div>
+                        </div>
+                    </div>
+                    <div class="characteristics">
+                        <h1>Характеристики</h1>
+                        <div class="playerStr">
+                            <h2>Сила</h2><p>0</p>
+                        </div>
+                        <div class="playerInt">
+                            <h2>Интелект</h2><p>0</p>
+                        </div>
+                        <div class="playerAgi">
+                            <h2>Ловкость</h2><p>0</p>
+                        </div>
+                        <div class="playerLuck">
+                            <h2>Удача</h2><p>0</p>
+                        </div>
+                    </div>
+                    <div class="effects">
+                        <div class="header">
+                            <img src="res/smile+.svg" alt="">
+                            <h1>Эффекты</h1>
+                            <img src="res/smile-.svg" alt="">
+                        </div>
+                        <div class="positive"></div>
+                        <div class="negative"></div>
+                    </div>
+                    <div class="summary-info">
+                        <h1>Урон и защита</h1>
+                        <div class="playerAttack">
+                            <img src="res/atk-icon.svg" alt=""><p>5</p><h2>Единиц за удар</h2></div>
+                        <div class="playerDeffense">
+                            <img src="res/def-icon.svg" alt=""><p>0</p><h2>Физическая броня</h2></div>
+                    </div>
+                </div>
+                <canvas id=equipment   width=407px height=687px></canvas>
+            </div>
+
+
+
             <div class="inventory">
-                <canvas width=420px height=650px></canvas>
+                <canvas width=415px height=620px></canvas>
                 <div class="inventory-popup">
-                    <div class="item-name"><p>Обоссаный щит</p></div>
-                    <div class="item-type"><p>Щит</p></div>
+                    <div class="item-name"><p></p></div>
+                    <div class="item-type"><p></p></div>
                     <div class="item-info">
                         <div class="item-img"></div>
                         <div class="attack-defence">
-                            <img src="res/def-icon.svg"><h1>15</h1>
+                            <img src="res/def-icon.svg" ><h1>15</h1>
                             <p>Защита</p>
                         </div>
                     </div>
@@ -43,8 +98,14 @@
                         <h2>Ловкость </h2><p class="item agi">0</p><span></span>
                         <h2>Удача </h2><p class="item luck">0</p ><span></span>
                     </div>
-                    <div class="popup-buttons"></div>
+                    <div class="popup-buttons">
+                        <div class="popup-button equipB"><p>Эквпипировать</p></div>
+                        <div class="popup-button descB"><p>Описание</p></div>
+                    </div>
                 </div>
+            </div>
+            <div class="close-button">
+                <div class="closeB"><p>Вернутся</p></div>
             </div>
         </div>
     </div>
@@ -52,7 +113,7 @@
     
     
     <script>
-        let canvas = document.getElementsByClassName("main-panel")[0].children[1];
+        let canvas = document.getElementsByClassName("main-panel")[0].children[0];
         canvas.setAttribute('width', '1405.82px');
         canvas.setAttribute('height', '469px');
         let context = canvas.getContext("2d");
@@ -63,9 +124,16 @@
             context.drawImage(img,0,0,canvas.width,canvas.height);
         })
     </script>
-  
+    <script src="player.js" type="module"></script>
+    <script src="itemsANDslots.js" type="module"></script>
+    <script src="Inventory.js" type="module"></script>
+    <script src="Equipment.js" type="module"></script>
+    <script src="main.js" type="module"></script>
     <script src="dialogueEvent.js"></script>
-    <script src="inventory.js"></script>
+    <script src="Enemy.js" type="module"></script>
+    <script src="generators.js" type="module"></script>
+    <script type="text/javascript" src="example.js"></script>
+    
     
 </body>
 </html>

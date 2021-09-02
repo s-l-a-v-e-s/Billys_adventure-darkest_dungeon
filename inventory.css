@@ -3,48 +3,106 @@
     padding: 0%;
 }
 .inventory-shadow{
-    width: 100%;
+    width:100%;
     height: 100%;
     position: absolute;
-    background:rgba(0, 0, 0, 0.8);
-   
+    background-image: url(res/body-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: auto;
+    
 }
 .inventory-screen{
     display: flex;
     flex-wrap: wrap;
     width: 1300px;
     height: 900px;
+    margin: auto;
+    margin-top:  30px;
+}
+.close-button{
+    width: 1200px;
+    height: 57px;
+    background-image: url(res/inv-close-button.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    display: flex;
+}
+.closeB{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+    width: 99px;
+    background: #2A2D33;
+    border: 1px solid #EAC48B;
+    box-sizing: border-box;
+    border-radius: 3px;
+    color: #E2CBA6;
+    height: 25px;
+    margin: auto;
+    margin-top: 10;
 }
 .character {
     width: 688px;
     height: 829px;
     margin: auto;
-    background-color: white;
+    margin-right: 10px;
     background-image: url(res/character-background.svg);
+    display: flex;
+}
+.character-info{
+    width: 225px;
+    height: 693px;
+    background-image: url(res/character-chars-bg.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 92px;
+    margin-left: 23px;
 
 }
+.state {
+    width: 191.82px;
+    height: 179px;
+}
+#equipment {
+    width: 407px;
+    height: 687px;
+    margin-top: 92px;
+    margin-left: 9px;
+   
+}
+
 .inventory {
-    width: 481px;
-    height: 818px;
+    width: 491px;
+    height: 830px;
     margin: auto;
-    margin-left: 22px;
-    background-color: #0F1118;
+    margin-left: 0%;
+    background-image: url(res/inv-bg.svg);
+    background-size: cover;
     display: flex;
 }
 .inventory canvas{
-    width:420px;
-    height:650px;
+    width: 415px;
+    height: 629px;
     background-color: #0C0C0C;
-    margin-top: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-top: 106px;
+    margin-left: 48px;
+
 }
 .inventory-popup{
     position: absolute;
-    width: 421px;
+    width: 410px;
     height: 259px;
     background-image: url(res/item-rarity-common.svg);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     visibility: hidden;
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +154,7 @@
 .item-info{
     width: 196px;
     height: 133px;
+    margin: auto;
     display: flex;
 }
 .item-chars{
@@ -150,15 +209,37 @@ span {
 .popup-buttons{
     height: 45px;
     width: 100%;
+    display: flex;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    justify-content: space-around;
+    /* #E2CBA6 */
+
+    color: #E2CBA6;
 }
+.popup-button{
+    width: 120px;
+    height: 25px;
+    background: #2A2D33;
+    border: 1px solid #EAC48B;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
 .item-img{
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     background: rebeccapurple;
     margin-top: 33px;
     margin-left: auto;
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 10px;
 }
 .attack-defence img{
     width: 29px;
@@ -196,4 +277,247 @@ span {
     font-size: 16px;
     line-height: 25px;
     color: #423D34;
+}
+
+
+
+
+
+.state{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+.state h1{
+    width: 100%;
+    height: 38px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #FFC977;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.bar{
+    width: 191.82px;
+    height: 36px;
+    display:  flex;
+    flex-wrap: wrap;
+
+}
+.bar div{
+    width: 189.48px;
+    height: 7px;
+    background: black;
+    border-radius: 3px;
+  
+}
+.bar h1{
+    width: 92.4px;
+    height: 28px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+    font-size: 14px;
+    line-height: 28px;
+}
+.bar p{
+    width: auto;
+    height: 28px;
+    margin-left:auto;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: right;
+    color: #E2CBA6;
+    overflow: auto;
+}
+span{
+    border-radius: 3px;
+}
+.hp span{
+    display: block;
+    height: 7px;
+    background: #D46B6B;
+    transition: all 0.4s linear;
+    box-shadow: 0px 0px 12px 6px rgba(212, 107, 107, 0.2);
+}
+.hp h1{
+    color: #D46B6B;
+}
+
+.mana span{
+    display: block;
+    height: 7px;
+    background: #7694FF;
+    transition: all 0.7s ease;
+    box-shadow: 0px 0px 12px 6px rgba(118, 148, 255, 0.2);
+}
+.mana h1{
+    color: #7694FF;
+}
+.stamina span{
+    display: block;
+    height: 7px;
+    background: #90CC54;
+    transition: all 0.4s linear;
+    box-shadow: 0px 0px 12px 6px rgba(144, 204, 84, 0.2);
+}
+.stamina h1{
+    color: #90CC54;
+
+}
+.characteristics{
+    width: 200px;
+    height: 160px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+}
+.characteristics h1{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+
+    color: #FFC977;
+
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.characteristics h2{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    width: 88px;
+
+    /* #E2CBA6 */
+
+    color: #E2CBA6;
+
+}
+.characteristics div {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.characteristics p{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 100%;
+    /* identical to box height, or 18px */
+    text-align: right;
+    color: #E2CBA6;
+}
+.effects {
+    width: 182px;
+    height: 102px;
+    margin: auto;
+    margin-top: 29px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center
+}
+.effects .header{
+    display: flex;
+    flex-wrap: wrap;
+    width: 176px;
+    height: 38px;
+    justify-content: space-around;
+}
+.header h1{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFC977;
+}
+.positive,.negative{
+    width: 63px;
+    height: 42px;
+    background-color: #E2CBA6;
+}
+.summary-info{
+    width: 182px;
+    height: 42px;
+    margin: auto;
+    margin-top: 23px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.summary-info h1{
+    width: 160px;
+    height: 38px;
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 38px;
+    text-align: center;
+    color: #FFC977;
+}
+.playerAttack,.playerDeffense{
+    display: flex;
+    width: 185px;
+    height: 28px;
+    margin-top: 8px;
+    
+}
+.playerAttack p,.playerDeffense p{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    margin-left: 10px;
+    color: #978972;
+
+    text-shadow: 0px 2.57297px 2.57297px rgba(0, 0, 0, 0.25);
+}
+.summary-info h2{
+    font-family: El Messiri;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    margin: auto;
+    height: auto;
+    color: #53504C;
+
+    text-shadow: 0px 2.57297px 2.57297px rgba(0, 0, 0, 0.25);
+}
+.playerAttack img{
+    width: 17px;
+    height: 17px;
+    margin: auto;
+    margin-left: 8px;
+}
+.playerDeffense img{
+    margin: auto;
+    
+    width: 25px;
+    height: 25px;
 }
