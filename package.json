@@ -1,0 +1,28 @@
+{
+  "name": "billys-adventure",
+  "version": "1.0.0",
+  "description": "Игра в стиле Darkest Dungeon с элементами RPG",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "serve src",
+    "dev": "serve src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/billys-adventure.git"
+  },
+  "keywords": [
+    "game",
+    "rpg",
+    "darkest-dungeon"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/billys-adventure/issues"
+  },
+  "homepage": "https://github.com/yourusername/billys-adventure#readme",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+} 

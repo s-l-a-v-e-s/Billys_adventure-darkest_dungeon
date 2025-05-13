@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billy's Adventure</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/icon.png">
+</head>
+<body>
+    <div class="main-container">
+        <div class="game-title">Billy's Adventure</div>
+        <div class="menu-container">
+            <button id="start-game" class="menu-button">Начать игру</button>
+            <button id="load-game" class="menu-button">Загрузить игру</button>
+            <button id="options" class="menu-button">Настройки</button>
+            <button id="about" class="menu-button">Об игре</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initGame } from './js/core/main.js';
+        
+        document.getElementById('start-game').addEventListener('click', () => {
+            window.location.href = 'game.html';
+        });
+        
+        document.getElementById('load-game').addEventListener('click', () => {
+            // Реализация загрузки игры
+            alert('Функция загрузки игры еще не реализована');
+        });
+        
+        document.getElementById('options').addEventListener('click', () => {
+            // Реализация меню настроек
+            alert('Функция настроек еще не реализована');
+        });
+        
+        document.getElementById('about').addEventListener('click', () => {
+            // Реализация информации об игре
+            alert('Игра Billy\'s Adventure - RPG в стиле Darkest Dungeon');
+        });
+        
+        // Инициализация игры
+        initGame();
+    </script>
+</body>
+</html>

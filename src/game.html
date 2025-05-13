@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billy's Adventure - Игра</title>
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/inventory.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/images/icon.png">
+</head>
+<body>
+    <div class="map-screen">
+        <div class="map-panel"></div>
+    </div>
+    <div class="char-screen">
+        <div class="img-block">
+            <div class="char-panel"></div>
+        </div>
+        <div class="char-bar">
+            <div class="hp-bar">
+                <div class="health"></div>
+            </div>
+            <div class="stamina-bar">
+                <div class="stamina"></div>
+            </div>
+        </div>
+    </div>
+    <div class="inventory-screen">
+        <div class="inventory-wrapper"></div>
+    </div>
+    <div class="event-screen">
+        <div class="event-panel">
+            <div class="event-image"></div>
+            <div class="event-text"></div>
+            <div class="event-answers"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import CONFIG from './js/core/config.js';
+        import { Player } from './js/entities/player.js';
+        import { Inventory } from './js/components/Inventory.js';
+        import { Equipment } from './js/components/Equipment.js';
+        import { DialogueEvent } from './js/events/dialogueEvent.js';
+        import { generateRandomItem } from './js/utils/generators.js';
+        
+        // Инициализация игры
+        document.addEventListener('DOMContentLoaded', () => {
+            // Создаем игрока
+            const player = new Player('Герой', 100, 100);
+            
+            // Инициализируем инвентарь
+            const inventory = new Inventory(player);
+            inventory.initialize();
+            
+            // Инициализируем экипировку
+            const equipment = new Equipment(player);
+            equipment.initialize();
+            
+            // Тестовое событие
+            const testEvent = new DialogueEvent(
+                'Добро пожаловать в игру',
+                'Вы просыпаетесь в темном подземелье. Что будете делать?',
+                [
+                    { text: 'Осмотреться', action: () => console.log('Осматриваемся...') },
+                    { text: 'Идти вперед', action: () => console.log('Идем вперед...') },
+                    { text: 'Кричать о помощи', action: () => console.log('Кричим...') }
+                ]
+            );
+            testEvent.show();
+        });
+    </script>
+</body>
+</html>
